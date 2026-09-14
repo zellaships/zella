@@ -315,10 +315,13 @@ nav.doors a.active::after {
     text-transform: none;
     letter-spacing: -0.01em;
     color: rgba(255, 255, 255, 0.7);
-    padding: var(--space-s) 0;
+    padding: var(--space-m) 0;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: color 0.2s ease, padding-left 0.2s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
   }
 
   nav.doors a:hover,
@@ -373,8 +376,17 @@ nav.doors a.active::after {
 .footer-right {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs) var(--space-m);
+  gap: var(--space-s) var(--space-l);
   order: 1;
+}
+
+/* Chunky mobile footer links */
+@media (max-width: 599px) {
+  .footer-link {
+    font-size: var(--text-l);
+    font-weight: 500;
+    padding: var(--space-xs) 0;
+  }
 }
 
 @media (min-width: 600px) {
