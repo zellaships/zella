@@ -276,7 +276,7 @@ nav.doors a.active::after {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile nav - slide-out sidebar */
+/* Mobile nav - fullscreen overlay */
 @media (max-width: 640px) {
   .nav-toggle {
     display: block;
@@ -285,69 +285,78 @@ nav.doors a.active::after {
   }
 
   nav.doors {
+    display: flex;
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
-    max-width: 80vw;
+    width: 100%;
+    max-width: 100%;
     background: var(--ink);
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: calc(var(--header-h) + var(--space-l)) var(--space-l) var(--space-l);
-    gap: var(--space-xs);
-    transform: translateX(100%);
+    align-items: stretch;
+    justify-content: center;
+    padding: var(--space-xl);
+    gap: 0;
+    transform: translateY(-100%);
     visibility: hidden;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s ease;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease,
+                visibility 0.4s ease;
     z-index: 1000;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
   }
 
   nav.doors.open {
-    transform: translateX(0);
+    transform: translateY(0);
     visibility: visible;
+    opacity: 1;
   }
 
   nav.doors a {
-    font-size: var(--text-2xl);
-    font-family: 'Helvetica', sans-serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-family: 'Helvetica Neue', 'Helvetica', -apple-system, sans-serif;
+    font-weight: 400;
     text-transform: none;
-    letter-spacing: -0.01em;
-    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.85);
     padding: var(--space-m) 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: color 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: color 0.2s ease, transform 0.2s ease;
     pointer-events: auto;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  nav.doors a:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   nav.doors a:hover,
+  nav.doors a:active,
   nav.doors a.active {
     color: #fff;
-    padding-left: var(--space-xs);
+    transform: translateX(8px);
   }
 
   nav.doors a::after {
     display: none;
   }
 
-  /* Overlay behind sidebar */
-  .nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
-    z-index: 999;
+  /* Close button style for active toggle */
+  .nav-toggle.active span {
+    background: #fff;
   }
 
-  .nav-overlay.open {
-    opacity: 1;
-    visibility: visible;
+  /* No overlay needed - fullscreen menu */
+  .nav-overlay {
+    display: none;
   }
 }
 
@@ -3970,13 +3979,12 @@ input:focus-visible {
 
 @media (max-width: 768px) {
   /* Ensure all interactive elements meet 44px minimum */
-  
-  /* Navigation links */
-  nav.doors a {
+
+  /* Navigation links - desktop nav only, mobile nav handled in 640px breakpoint */
+  nav.doors:not(.open) a {
     min-height: 44px;
     display: flex;
     align-items: center;
-    padding: var(--space-xs) var(--space-s);
   }
   
   /* Footer links */
