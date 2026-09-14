@@ -3618,9 +3618,10 @@ input:focus-visible {
 }
 
 .cs-card-placeholder-img .lock-icon {
-  width: 32px;
-  height: 32px;
-  color: #bbb;
+  width: 64px;
+  height: 64px;
+  color: #ccc;
+  stroke-width: 1;
 }
 
 .cs-card-placeholder .cs-card-title {
