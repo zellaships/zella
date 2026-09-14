@@ -1098,10 +1098,10 @@ nav.doors a.active::after {
   left: 0;
   border: none;
   pointer-events: none;
-  transform: scale(0.5);
+  transform: scale(0.33);
   transform-origin: top left;
-  width: 200%;
-  height: 200%;
+  width: 303%;
+  height: 303%;
   animation: none;
 }
 
