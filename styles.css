@@ -966,10 +966,21 @@ nav.doors a.active::after {
   margin-bottom: var(--space-m);
 }
 
+.cs-featured-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+}
+
 .cs-featured-link {
   font-size: var(--text-s);
   font-weight: 500;
   color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.cs-featured-link:hover {
+  color: var(--green);
 }
 
 .cs-featured-preview {
