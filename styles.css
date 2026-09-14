@@ -290,10 +290,17 @@ nav.doors a.active::after {
 
 /* Mobile nav - fullscreen overlay */
 @media (max-width: 768px) {
+  /* Override home-locked header z-index on mobile */
+  .home-locked .site-header {
+    z-index: 99998;
+  }
+
   .nav-toggle {
     display: block;
-    position: relative;
-    z-index: 100000;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100001;
   }
 
   nav.doors {
@@ -314,13 +321,23 @@ nav.doors a.active::after {
     gap: 1rem;
     opacity: 0;
     visibility: hidden;
-    z-index: 99999;
+    z-index: 100000;
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
     -webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    isolation: isolate;
-    mix-blend-mode: normal;
+  }
+
+  /* Solid backdrop pseudo-element to block all content */
+  nav.doors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: -1;
   }
 
   nav.doors.open {
@@ -328,7 +345,6 @@ nav.doors a.active::after {
     visibility: visible;
     -webkit-transform: translateY(0);
     transform: translateY(0);
-    background: #000;
   }
 
   nav.doors a {
