@@ -3603,8 +3603,13 @@ input:focus-visible {
 }
 
 .cs-grid-placeholder .cs-card-placeholder {
-  pointer-events: none;
+  cursor: pointer;
   opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.cs-grid-placeholder .cs-card-placeholder:hover {
+  opacity: 1;
 }
 
 .cs-card-placeholder-img {

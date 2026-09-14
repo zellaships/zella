@@ -750,6 +750,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1200);
       }
     });
+
+    // Click on locked placeholder cards scrolls to password
+    const placeholderCards = document.querySelectorAll('.cs-card-placeholder');
+    placeholderCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const gateSection = document.getElementById('csGateSection');
+        if (gateSection) {
+          gateSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => input.focus(), 400);
+        }
+      });
+    });
   }
 
   // Case study page protection
