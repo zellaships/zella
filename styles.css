@@ -137,6 +137,11 @@ body {
   padding-top: var(--header-h);
 }
 
+/* Home page uses sticky header, so no body padding needed */
+body.home-locked {
+  padding-top: 0;
+}
+
 /* Reading Progress Bar */
 .reading-progress {
   position: fixed;
@@ -330,14 +335,17 @@ nav.doors a.active::after {
     letter-spacing: 0.02em;
     color: rgba(255, 255, 255, 0.9);
     padding: 1rem 2rem;
+    padding-bottom: 1rem;
     min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
     border: none;
+    border-bottom: none;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
   }
 
   nav.doors a:active {
@@ -345,6 +353,12 @@ nav.doors a.active::after {
   }
 
   nav.doors a::after {
+    content: none;
+    display: none;
+  }
+
+  nav.doors a::before {
+    content: none;
     display: none;
   }
 
@@ -388,6 +402,11 @@ nav.doors a.active::after {
 
 /* Chunky mobile footer links */
 @media (max-width: 599px) {
+  .site-footer {
+    padding: var(--space-m) 0 var(--space-l);
+    margin-top: var(--space-xl);
+  }
+
   .footer-link {
     font-size: var(--text-l);
     font-weight: 500;
@@ -517,7 +536,7 @@ nav.doors a.active::after {
 
 .home-locked .site-footer {
   margin-top: 0;
-  padding: var(--space-xl) 0;
+  padding: var(--space-m) 0;
   background: var(--green);
   border: none !important;
   border-top: none !important;
@@ -1060,6 +1079,26 @@ nav.doors a.active::after {
   height: 100%;
   border: none;
   pointer-events: none;
+}
+
+/* Featured card live site previews */
+.cs-featured-preview .browser-viewport {
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-featured-preview .browser-viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+  width: 200%;
+  height: 200%;
+  animation: none;
 }
 
 /* ---------- Case Study Grid ---------- */
@@ -2521,7 +2560,8 @@ body.case-study-ipg .cs-hero-image img {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-.browser-chrome {
+/* Only hide browser chrome inside cs-browser-frame */
+.cs-browser-frame .browser-chrome {
   display: none;
 }
 
