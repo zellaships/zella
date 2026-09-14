@@ -6,9 +6,9 @@
 <title>404 — Zella</title>
 <meta name="robots" content="noindex">
 
-<link rel="icon" type="image/png" href="assets/images/zella-logo.png">
-<link rel="apple-touch-icon" href="assets/images/zella-logo.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="/assets/images/zella-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/zella-logo.png">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body class="home-locked">
 
@@ -17,36 +17,27 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="wordmark" href="index.html"><img src="assets/images/zella-logo.png" alt="Zella" class="logo-img"></a>
+    <a class="wordmark" href="/"><img src="/assets/images/zella-logo.png" alt="Zella" class="logo-img"></a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <nav class="doors">
-      <a href="artist.html">Art</a>
-      <a href="designer.html">Design</a>
+      <a href="/artist.html">Art</a>
+      <a href="/designer.html">Design</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap" id="main-content">
-  <section class="essay" style="padding: var(--space-2xl) 0;">
-    <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-l);">That page doesn't exist</h1>
+  <section class="essay" style="padding: var(--space-2xl) 0; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+    <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: var(--space-xl); font-weight: 400;">That page doesn't exist</h1>
 
-    <nav class="doors-list">
-      <a href="index.html">
-        <span>Home</span>
-        <span class="tag">Start here</span>
-      </a>
-      <a href="designer.html">
-        <span>Design</span>
-        <span class="tag">Case studies</span>
-      </a>
-      <a href="artist.html">
-        <span>Art</span>
-        <span class="tag">Gallery</span>
-      </a>
+    <nav class="doors-list" style="max-width: 400px;">
+      <a href="/">Home</a>
+      <a href="/designer.html">Design</a>
+      <a href="/artist.html">Art</a>
     </nav>
   </section>
 </main>
@@ -64,8 +55,8 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script src="fluid-effect.js"></script>
-<script src="liquid-border.js"></script>
+<script src="/script.js"></script>
+<script src="/fluid-effect.js"></script>
+<script src="/liquid-border.js"></script>
 </body>
 </html>
