@@ -21,36 +21,30 @@
     padding: var(--gutter);
   }
 
-  .error-code {
-    font-size: clamp(6rem, 20vw, 12rem);
-    font-weight: 700;
-    line-height: 1;
-    color: var(--green);
-    margin-bottom: 0.5rem;
-  }
-
   .error-message {
-    font-size: var(--text-l);
-    color: var(--muted);
-    margin-bottom: 2rem;
+    font-size: var(--text-xl);
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
     max-width: 400px;
   }
 
   .error-links {
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
 
   .error-link {
-    font-size: var(--text-s);
+    font-size: var(--text-xl);
     color: var(--ink);
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    padding: 1rem 2rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
     transition: all 0.2s ease;
+    min-width: 200px;
+    text-align: center;
   }
 
   .error-link:hover {
@@ -63,11 +57,10 @@
 <body>
 
 <main class="error-page">
-  <div class="error-code">404</div>
-  <p class="error-message">Oop, this page doesn't exist. Let's get you somewhere better.</p>
+  <p class="error-message">Oop, that page doesn't exist .. try these instead</p>
   <div class="error-links">
     <a href="index.html" class="error-link">Home</a>
-    <a href="designer.html" class="error-link">Design Work</a>
+    <a href="designer.html" class="error-link">Design</a>
     <a href="artist.html" class="error-link">Art</a>
   </div>
 </main>
