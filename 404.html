@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Zella</title>
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" href="assets/images/zella-logo.png">
+<link rel="apple-touch-icon" href="assets/images/zella-logo.png">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--gutter);
+  }
+
+  .error-code {
+    font-size: clamp(6rem, 20vw, 12rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+
+  .error-message {
+    font-size: var(--text-l);
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+
+  .error-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .error-link {
+    font-size: var(--text-s);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .error-link:hover {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<main class="error-page">
+  <div class="error-code">404</div>
+  <p class="error-message">Oop, this page doesn't exist. Let's get you somewhere better.</p>
+  <div class="error-links">
+    <a href="index.html" class="error-link">Home</a>
+    <a href="designer.html" class="error-link">Design Work</a>
+    <a href="artist.html" class="error-link">Art</a>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Along Mentoring Tool Case Study — Zella</title>
+<meta name="description" content="Building a mentoring tool to strengthen teacher-student relationships during the pandemic. Lead Product Designer at Chan Zuckerberg Initiative.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Along Mentoring Tool Case Study — Zella">
+<meta property="og:description" content="Building a mentoring tool to strengthen teacher-student relationships during the pandemic.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zella.design/case-study-along.html">
+<meta property="og:image" content="https://zella.design/assets/images/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Along Mentoring Tool Case Study — Zella">
+<meta name="twitter:description" content="Building a mentoring tool to strengthen teacher-student relationships during the pandemic.">
+<meta name="twitter:image" content="https://zella.design/assets/images/og-image.png">
+
+<link rel="icon" type="image/png" href="assets/images/zella-logo.png">
+<link rel="apple-touch-icon" href="assets/images/zella-logo.png">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="case-study">
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<canvas id="ink-canvas"></canvas>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><img src="assets/images/zella-logo.png" alt="Zella" class="logo-img"></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="doors">
+      <a href="artist.html">Art</a>
+      <a href="designer.html" class="active">Design</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Reading Progress -->
+<div class="reading-progress">
+  <div class="reading-progress-bar"></div>
+</div>
+<div class="reading-time"></div>
+
+<main class="wrap" id="main-content">
+
+  <section class="cs-detail-hero">
+    <span class="kicker">Case Study</span>
+    <h1>Building a mentoring tool to strengthen teacher-student relationships during the pandemic</h1>
+    <p class="lede">
+      When classrooms went remote, teachers lost the small moments that build trust: the hallway check-ins, the quick conversations before class. As lead product designer, I built the visual foundation, component system, and core flows for Along, a tool that recreates those moments through structured prompts and asynchronous reflection.
+    </p>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <div class="label">Company</div>
+        <div class="value">Chan Zuckerberg Initiative</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="label">Role</div>
+        <div class="value">Lead Product Designer</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="label">Duration</div>
+        <div class="value">1 year</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="label">Platform</div>
+        <div class="value">Responsive Web</div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="cs-image-full cs-showcase-scroll">
+    <div class="showcase-viewport">
+      <img src="assets/images/czi-assets/along-showcase.png" alt="Along mentoring tool interface showing student-teacher interactions" class="showcase-img">
+    </div>
+    <figcaption>Along: a tool to help build strong mentor relationships between students and teachers</figcaption>
+  </figure>
+
+  <section class="cs-section-block">
+    <h2>The Challenge</h2>
+    <p>
+      When schools shifted to remote learning, the informal moments of connection between teachers and students disappeared. The quick check-ins before class, the hallway conversations. These small interactions that build trust and understanding were suddenly gone.
+    </p>
+    <p>
+      Along also represented a strategic shift for CZI's education team. Our existing products followed a school leader adoption model, where district and principal buy-in drove usage. Along was different: a teacher-first product where individual educators could sign up and start using it on their own. This was a new go-to-market motion for the org, which meant the product had to be simple enough to onboard without training and compelling enough to spread through word of mouth.
+    </p>
+    <p>
+      We needed to create a space where meaningful mentorship moments could happen asynchronously, respecting both teachers' limited time and students' varied schedules and comfort levels.
+    </p>
+  </section>
+
+  <section class="cs-section-block">
+    <h2>Visual Elements for Initial Prototyping</h2>
+    <p>
+      I established the core visual elements (color, typography, iconography, and component patterns) that would carry across the product. This wasn't a full design system yet. It was a working vocabulary: flexible enough to test ideas quickly, consistent enough that flows would feel unified from prototype to production.
+    </p>
+  </section>
+
+  <figure class="cs-image-full">
+    <img src="assets/images/czi-assets/along-visual-elements.png" alt="Visual elements for initial prototyping showing color, typography, and component patterns">
+    <figcaption>Foundational visual elements: color palette, typography, and interaction patterns, established early to maintain consistency across rapid prototyping.</figcaption>
+  </figure>
+
+  <section class="cs-section-block">
+    <h2 class="cs-major-heading">Brand System</h2>
+  </section>
+
+  <section class="cs-section-block">
+    <h3>Typography</h3>
+    <p>
+      I led the type exploration and recommended Moranga as the display typeface, a rounded serif by Latinotype that balances lighthearted fun with credibility. The warm, rounded serifs and teardrop terminals give it personality without sacrificing legibility, exactly the tone Along needed: approachable but not childish, warm but not soft.
+    </p>
+  </section>
+
+  <figure class="cs-image-full">
+    <img src="assets/images/czi-assets/along-typography.png" alt="Typography system showing Moranga typeface with warm, rounded serifs">
+    <figcaption>Moranga, a rounded serif that balances warmth and credibility across the Along brand.</figcaption>
+  </figure>
+
+  <section class="cs-section-block">
+    <h3>Components</h3>
+    <p>
+      I built out a component library that could flex across student and teacher experiences while maintaining visual consistency. Response options, question headers, navigation states, and audio backgrounds. Each element designed to feel unified whether a student was recording a video or a teacher was reviewing responses.
+    </p>
+  </section>
+
+  <figure class="cs-image-full">
+    <img src="assets/images/czi-assets/along-components.png" alt="Component library showing compose options, question headers, navigation, and audio backgrounds">
+    <figcaption>Component library: response options, question headers, navigation states, and audio backgrounds designed for consistency across experiences.</figcaption>
+  </figure>
+
+  <section class="cs-section-block">
+    <h3>Brand evolution through prototypes</h3>
+    <p>
+      I ran design sprints that pushed the visual identity through multiple directions, testing color, layout, and tone with each round. Early explorations ranged from minimal single-panel layouts to more vibrant, expressive directions. Each round sharpened the balance between warmth and clarity until we landed on the final Along brand.
+    </p>
+  </section>
+
+  <div class="cs-flow-row">
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-1a.png" alt="Early prototype iteration 1">
+      </div>
+      <span class="cs-whisper">Early single-panel exploration. Minimal, focused.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-1b.png" alt="Early prototype iteration 2">
+      </div>
+      <span class="cs-whisper">Refining layout and hierarchy.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-2a.png" alt="Two-panel prototype 1">
+      </div>
+      <span class="cs-whisper">Side-panel exploration</span>
+    </div>
+  </div>
+
+  <div class="cs-flow-row">
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-2b.png" alt="Two-panel prototype 2">
+      </div>
+      <span class="cs-whisper">Iterating on warmth and color.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-3a.png" alt="Three-panel prototype">
+      </div>
+      <span class="cs-whisper">Using shapes to draw attention to key screen areas.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-proto-3b.png" alt="Vibrant cosmo direction">
+      </div>
+      <span class="cs-whisper">Vibrant, human, distinct.</span>
+    </div>
+  </div>
+
+  <section class="cs-section-block">
+    <h2>Mapping the Experience</h2>
+    <p>
+      Teachers who made it through were seeing real results: students opening up, relationships strengthening. But we were losing too many along the way. Our v1 onboarding asked too much upfront, and teachers with packed schedules were dropping off before sending their first prompt.
+    </p>
+    <p>
+      Using service blueprinting, I mapped the full onboarding flow from school leader signup, through teacher account creation, to a student receiving their first question. This became the artifact I used to align engineering, product, and our school partnerships team across a few workshops.
+    </p>
+    <p>
+      In ed tech product environments, back-to-school season is a critical narrow window to ship products and new features. Teachers were setting up classrooms, syncing rosters from Clever, deciding which tools would earn a place in their already-overloaded workflow. We needed to make Along feel effortless at exactly the moment they were most overwhelmed.
+    </p>
+  </section>
+
+  <figure class="cs-image-full">
+    <img src="assets/images/czi-assets/along-onboarding-flow.png" alt="Onboarding flow map showing the path from school leader signup through teacher and student adoption">
+    <figcaption>Mapping the full onboarding journey, from school leader to teacher to student, to find what was blocking teachers and where we could improve.</figcaption>
+  </figure>
+
+  <section class="cs-section-block">
+    <h2 class="cs-major-heading">Key Flows</h2>
+  </section>
+
+  <!-- Flow 1: Response format options -->
+  <section class="cs-flow-section">
+    <h3>Response format options</h3>
+    <p class="cs-flow-rationale">Students could respond in text, video, or a combination. Each format designed to feel equally valid. No default, no pressure.</p>
+    <div class="cs-flow-row">
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd01-text.png" alt="Starting with text">
+        </div>
+        <span class="cs-whisper">Starting with text. Simple, low-pressure entry point.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd01-video-text.png" alt="Video with text option">
+        </div>
+        <span class="cs-whisper">Video with text. Combining formats for richer expression.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd01-video.png" alt="Starting with video">
+        </div>
+        <span class="cs-whisper">Starting with video. For students who prefer to speak.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow 2: Complete student response journey -->
+  <section class="cs-flow-section">
+    <h3>Complete student response journey</h3>
+    <p class="cs-flow-rationale">The full flow from choosing a format to sending a reflection. Designed to feel personal, low-pressure, and expressive at every step.</p>
+    <div class="cs-flow-row">
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd02-choosing.png" alt="Choosing a mode">
+        </div>
+        <span class="cs-whisper">Choosing a mode: audio, video, or text.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd03-recording.png" alt="Recording video">
+        </div>
+        <span class="cs-whisper">Recording video. Clear feedback, simple controls.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd04-preview.png" alt="Preview and send">
+        </div>
+        <span class="cs-whisper">Preview before sending. Review or re-record.</span>
+      </div>
+    </div>
+    <div class="cs-flow-row">
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd05-preview.png" alt="Preview with options">
+        </div>
+        <span class="cs-whisper">Ready to send, with option to add context.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd05b-text.png" alt="Text added">
+        </div>
+        <span class="cs-whisper">Adding a note. Context the video didn't capture.</span>
+      </div>
+      <span class="cs-flow-arrow">→</span>
+      <div class="cs-flow-item">
+        <div class="cs-flow-frame">
+          <img src="assets/images/czi-assets/along-sd06-sent.png" alt="Reflection sent">
+        </div>
+        <span class="cs-whisper">Reflection sent. A clear moment of completion.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section-block">
+    <h2>Navigation & Edge Cases</h2>
+    <p>
+      Beyond the core flows, I worked through the less obvious states: what happens when content is blocked, how notifications surface without overwhelming, how the navigation scales as conversations accumulate. These explorations covered edge cases that could easily break trust: reported content, archived reflections, and the transitions between open and closed states.
+    </p>
+  </section>
+
+  <figure class="cs-image-full">
+    <img src="assets/images/czi-assets/along-nav-iteration.png" alt="Navigation iteration showing blocked content states, notification design, and edge cases">
+    <figcaption>Iterating on navigation: blocked content handling, notification design, and edge case states across the student experience.</figcaption>
+  </figure>
+
+  <section class="cs-section-split">
+    <div class="cs-split-text">
+      <h2>Designing the Content Library</h2>
+      <p>
+        The Content Library was the heart of the teacher experience, the place where they'd browse collections and pick questions to send to students. I owned the visual direction: a softer palette than a typical edtech tool, generous whitespace, and typography that felt inviting rather than institutional.
+      </p>
+      <p>
+        The library organized questions into themed collections: "Getting acquainted," "Build a learning community," "Values and interests." Some teachers wanted light check-ins; others wanted questions that opened deeper territory. I worked with our education content specialist to design a hierarchy that surfaced both without making the heavier topics feel intimidating.
+      </p>
+      <p>
+        We also designed for progress and personalization. A simple checkbox helped teachers track which questions they'd already sent, and a Favorites feature let them save questions they wanted to return to, building a personal library over time.
+      </p>
+    </div>
+    <div class="cs-split-image">
+      <img src="assets/images/czi-assets/along-content-library.png" alt="Content Library interface showing question collections and pathways for teachers">
+      <span class="cs-whisper">The Content Library: collections organized by theme, with recommended questions surfaced at the top.</span>
+    </div>
+  </section>
+
+  <section class="cs-section-block">
+    <h2>Question-Led vs. Collection-Led</h2>
+    <p>
+      A core tension emerged in the early prototyping: should we lead with questions or collections? I tested three directions. Leading with collections prioritized clear entry points and optimized for browsing. Leading with questions surfaced content directly, reducing clicks to send. Adding filters and depth tagging let teachers narrow by tone: light check-ins versus deeper, more vulnerable territory.
+    </p>
+    <p>
+      We shipped the hybrid: questions first, with collection entry points visible but secondary, with richer filtering queued for the next release.
+    </p>
+    <p>
+      The goal stayed the same: help teachers find what they're looking for in under 20 seconds. That constraint guided every hierarchy decision (type scale, card density, whitespace) and kept the visual system focused.
+    </p>
+  </section>
+
+  <div class="cs-flow-row">
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-leading-collections.png" alt="Library layout leading with collections">
+      </div>
+      <span class="cs-whisper">Leading with collections. Clear entry points, optimized for browsing.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-leading-questions.png" alt="Library layout leading with questions">
+      </div>
+      <span class="cs-whisper">Leading with questions. Surface content directly, fewer clicks to send.</span>
+    </div>
+    <span class="cs-flow-arrow">→</span>
+    <div class="cs-flow-item">
+      <div class="cs-flow-frame">
+        <img src="assets/images/czi-assets/along-leading-questions-filter.png" alt="Questions with filter and depth tagging">
+      </div>
+      <span class="cs-whisper">Adding filters and depth tagging. Find the right tone faster.</span>
+    </div>
+  </div>
+
+  <section class="cs-section-block">
+    <h2>Results</h2>
+    <p>
+      The streamlined onboarding flow shipped before back-to-school season, and teacher setup completion improved significantly compared to the previous semester. The revised welcome question flow, where teachers add students and set up a magic link in one sitting, became the highest-impact entry point for new users.
+    </p>
+    <p>
+      The Content Library redesign shifted teacher behavior. Instead of abandoning the library after first use, teachers returned throughout the semester, browsing collections, sending more questions, building an ongoing practice rather than a one-time setup task.
+    </p>
+  </section>
+
+  <section class="cs-section-block">
+    <h2>What I Learned</h2>
+    <p>
+      Building during a pandemic, when teachers were overwhelmed with new tools, new systems, and no spare capacity, taught me that onboarding is often the most important product surface. Teachers had 30 seconds of patience. Getting them through setup fast enough to send their first invite to students was the clearest signal of whether they'd stay.
+    </p>
+    <p>
+      The deeper lesson was about emotional design in institutional contexts. Along needed to feel like a conversation, not a compliance tool. The rounded serifs, the soft palette, the checkbox that created momentum: these details carried the product's intent more than any feature list could.
+    </p>
+  </section>
+
+  <section class="cs-section-block">
+    <h2>Recognition</h2>
+    <p>
+      Along was named to <a href="https://time.com/collections/best-inventions-2022/6230382/gradient-learning-along/" target="_blank" rel="noopener">TIME's Best Inventions of 2022</a>.
+    </p>
+  </section>
+
+  <section class="cs-explore cs-explore--brutalist">
+    <span class="cs-explore-label">Other Case Studies</span>
+    <div class="cs-explore-strip">
+      <a class="cs-explore-item" href="case-study-czi.html">
+        <h3 class="cs-explore-title">Chan Zuckerberg Initiative</h3>
+        <p class="cs-explore-excerpt">Designing digital tools to help empower teachers, school leaders, and young people with data and educational experiences.</p>
+      </a>
+      <a class="cs-explore-item" href="case-study-mru.html">
+        <h3 class="cs-explore-title">Mediation Response Unit</h3>
+        <p class="cs-explore-excerpt">Designing a national toolkit to help communities respond to conflict with mediation instead of police.</p>
+      </a>
+      <a class="cs-explore-item" href="case-study-ipg.html">
+        <h3 class="cs-explore-title">Interpublic Group</h3>
+        <p class="cs-explore-excerpt">Bringing collective intelligence to executive decision-making at a global advertising holding company operating in over 130 countries.</p>
+      </a>
+      <a class="cs-explore-item" href="case-study-xq.html">
+        <h3 class="cs-explore-title">XQ Institute</h3>
+        <p class="cs-explore-excerpt">Architecting a national movement to rethink America's high schools. 26 million viewers, 2x supporter growth overnight.</p>
+      </a>
+    </div>
+    <div class="cs-explore-back">
+      <a href="designer.html">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.3"/></svg>
+        Back to Design
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-left">
+      <span>© Zella</span>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:zellavanie@gmail.com" class="footer-link">Email</a>
+      <a href="https://www.instagram.com/zellanealehurston/" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+      <a href="https://x.com/zella_vanie" target="_blank" rel="noopener" class="footer-link">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="fluid-effect.js"></script>
+</body>
+</html>

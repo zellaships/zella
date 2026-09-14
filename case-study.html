@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Aperture Case Study — Zella</title>
+<meta name="description" content="Case study: Project Aperture. Product design and strategy work by Zella.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Project Aperture Case Study — Zella">
+<meta property="og:description" content="Product design and strategy case study by Zella.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zella.design/case-study.html">
+<meta property="og:image" content="https://zella.design/assets/images/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Project Aperture Case Study — Zella">
+<meta name="twitter:description" content="Product design and strategy case study by Zella.">
+<meta name="twitter:image" content="https://zella.design/assets/images/og-image.png">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="case-study">
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<canvas id="ink-canvas"></canvas>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><img src="assets/images/zella-logo.png" alt="Zella" class="logo-img"></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="doors">
+      <a href="artist.html">Artist</a>
+      <a href="designer.html" class="active">Designer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- GATE -->
+<section class="gate" data-gate>
+  <div class="gate-box">
+    <span class="kicker">Project Aperture</span>
+    <h1 class="serif">This one's gated.</h1>
+    <p>Enter the access code to view this case study.</p>
+    <form data-gate-form>
+      <div class="gate-input-row">
+        <label for="access-code" class="visually-hidden">Access code</label>
+        <input type="text" id="access-code" inputmode="text" maxlength="12" placeholder="ACCESS CODE" autocomplete="off" aria-describedby="gate-error">
+        <button type="submit">Enter</button>
+      </div>
+    </form>
+    <div class="gate-error" id="gate-error" data-gate-error>That code's not it — try again.</div>
+    <p class="gate-note">Placeholder code for this prototype: <strong>123</strong></p>
+  </div>
+</section>
+
+<!-- CONTENT (hidden until unlocked) -->
+<main class="wrap cs-content" id="main-content" data-cs-content>
+
+  <section class="cs-header">
+    <span class="kicker">Case study</span>
+    <h1>Project Aperture</h1>
+    <p class="dek">
+      [One or two sentences that frame the problem and why it mattered — written for a design
+      director skimming fast.]
+    </p>
+    <div class="meta-strip">
+      <div><span class="label">Role</span>Lead Product Designer</div>
+      <div><span class="label">Timeframe</span>4 months</div>
+      <div><span class="label">Team</span>2 eng · 1 PM · 1 research</div>
+      <div><span class="label">Context</span>0→1, internal pilot → GA</div>
+    </div>
+  </section>
+
+  <div class="hero-frame">Hero image / video — placeholder</div>
+
+  <section class="cs-section">
+    <div class="s-label">Problem</div>
+    <div class="s-body">
+      <p>
+        [What was broken or missing, and for whom — concretely. A real constraint, a real user
+        behavior, a real business cost. Not "users were confused" — what they did instead, and
+        what that cost.]
+      </p>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="s-label">Process</div>
+    <div class="s-body">
+      <p>
+        [How you actually worked through it — key decisions, what you tried and rejected, where
+        you pushed back on scope or stakeholders. Directors read this section closest, because
+        it's where judgment shows, not just visuals.]
+      </p>
+      <div class="artifact-grid">
+        <div class="artifact-frame">Artifact 01</div>
+        <div class="artifact-frame">Artifact 02</div>
+        <div class="artifact-frame">Artifact 03</div>
+        <div class="artifact-frame">Artifact 04</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="s-label">Outcome</div>
+    <div class="s-body">
+      <p>
+        [What shipped, and what changed because of it. One real metric — adoption, retention,
+        time saved, revenue — beats three vague ones.]
+      </p>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="s-label">Reflection</div>
+    <div class="s-body">
+      <p>
+        [What you'd do differently, or what this project taught you that still shows up in how
+        you work now — the paragraph that reads as director, not contributor.]
+      </p>
+    </div>
+  </section>
+
+  <div class="cs-nextprev">
+    <a href="designer.html"><span class="small">Back to</span>Designer overview</a>
+    <a href="case-study.html"><span class="small">Next case</span>Project Meridian →</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© Zella</span>
+    <a href="mailto:zella@blackveteransproject.org">zella@blackveteransproject.org</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="fluid-effect.js"></script>
+</body>
+</html>

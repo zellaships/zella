@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zella — Artist</title>
+<meta name="description" content="Artwork by Zella spanning performance, painting, zines, and portal-making. Exhibited at Mass MoCA, LMCC, Flux Factory, and galleries internationally.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Zella — Artist">
+<meta property="og:description" content="Artwork spanning performance, painting, zines, and portal-making. Exhibited internationally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zella.design/artist.html">
+<meta property="og:image" content="https://zella.design/assets/images/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zella — Artist">
+<meta name="twitter:description" content="Artwork spanning performance, painting, zines, and portal-making. Exhibited internationally.">
+<meta name="twitter:image" content="https://zella.design/assets/images/og-image.png">
+
+<link rel="icon" type="image/png" href="assets/images/zella-logo.png">
+<link rel="apple-touch-icon" href="assets/images/zella-logo.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<canvas id="ink-canvas"></canvas>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><img src="assets/images/zella-logo.png" alt="Zella" class="logo-img"></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="doors">
+      <a href="artist.html" class="active">Art</a>
+      <a href="designer.html">Design</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main-content">
+
+  <section class="section-hero">
+    <h1>Art</h1>
+  </section>
+
+  <section class="artist-cv">
+    <div class="cv-columns">
+      <div class="cv-col">
+        <h2>Group Exhibitions and Shows</h2>
+        <div class="cv-year-group">
+          <span class="cv-year-header">2026</span>
+          <ul class="cv-list cv-list-expanded">
+            <li><a href="https://www.recessart.org/events/295-deli-radio-presents-dream-ki-by-zella-vanie-followed-by-yatta-earthheaven" target="_blank" rel="noopener">Recess</a></li>
+            <li>Flux Factory Residency</li>
+            <li>LMCC Residency on Governors Island</li>
+          </ul>
+        </div>
+        <div class="cv-year-group">
+          <span class="cv-year-header">2025</span>
+          <ul class="cv-list cv-list-expanded">
+            <li><a href="https://www.lichtundfire.com/tag/zella/" target="_blank" rel="noopener">Lichtundfire Gallery — Kinfolk Reimagined</a></li>
+          </ul>
+        </div>
+        <div class="cv-year-group">
+          <span class="cv-year-header">2024</span>
+          <ul class="cv-list cv-list-expanded">
+            <li><a href="https://moore.edu/events/re-focus-then-and-now/2024-01-27/" target="_blank" rel="noopener">Smith College — (Re)FOCUS: Then and Now</a></li>
+            <li>Industry City</li>
+            <li>NYC Crit Club — Swimming in the Mirror</li>
+          </ul>
+        </div>
+        <div class="cv-year-group">
+          <span class="cv-year-header">2023</span>
+          <ul class="cv-list cv-list-expanded">
+            <li><a href="https://www.pentimenti.com/one-to-the-next" target="_blank" rel="noopener">Pentimenti Gallery</a></li>
+            <li>Heath Gallery</li>
+            <li>ECCA</li>
+            <li><a href="https://www.cbkzuidoost.nl/tentoonstellingen/nu-en-verwacht/knights-in-shining-armour-reappropriating-the-appropriated/?lang=en" target="_blank" rel="noopener">CBK Zuidoost — Knights in Shining Armour</a></li>
+          </ul>
+        </div>
+        <div class="cv-year-group">
+          <span class="cv-year-header">2022</span>
+          <ul class="cv-list cv-list-expanded">
+            <li>Aferro Gallery</li>
+            <li>Untitled Gallery</li>
+            <li>Mobifest</li>
+            <li>The Other Art Fair</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cv-col">
+        <h2>Honors</h2>
+        <ul class="cv-list cv-list-plain">
+          <li>Speaker at 2026 Black Information Futures Symposium</li>
+          <li>Guest lecturer at RISD</li>
+          <li>Mass MoCA artist residency grant recipient</li>
+          <li><a href="https://thecanopyprogram.com/exhibitions" target="_blank" rel="noopener">Canopy program grant recipient</a></li>
+          <li>Gatekeepers Collective grant recipient</li>
+          <li><a href="https://www.theotherartfair.com/new-futures/2022-recipients/" target="_blank" rel="noopener">New Futures recipient</a></li>
+          <li>Flux Factory Exhibition grant recipient</li>
+          <li>Carrie Able artist-in-residence recipient</li>
+          <li>Guest critic at Parsons BFA Photography</li>
+          <li>Speaker, UXPA International Conference</li>
+          <li>Speaker, NABJ Regional Conference</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="art-layout">
+
+    <nav class="art-years" data-year-nav>
+      <button class="yr-link" data-goto="y2026">2026</button>
+      <button class="yr-link" data-goto="y2025">2025</button>
+      <button class="yr-link" data-goto="y2024">2024</button>
+      <button class="yr-link" data-goto="y2023">2023</button>
+      <button class="yr-link" data-goto="y2022">2022</button>
+    </nav>
+
+    <div class="art-scroll">
+
+      <section class="art-year-section" id="y2026" data-year-section>
+        <span class="year-label">2026</span>
+        <div class="art-grid-scatter">
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/dreamki-2026.png" alt="DREAMKI event flyer" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>DREAMKI</strong>
+                <span>Event flyer, MOTHERBOARD</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/ESBI_poster_23x15_600dpi.png" alt="ESBI screening poster" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>ESBI</strong>
+                <span>Screening poster</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-video">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/videos/Alice_screening.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>
+                <strong>Alice Screening</strong>
+                <span>Video</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="art-year-section" id="y2025" data-year-section>
+        <span class="year-label">2025</span>
+        <div class="art-grid-scatter">
+          <div class="art-item">
+            <figure>
+              <div class="art-video">
+                <video autoplay loop muted playsinline>
+                  <source src="assets/videos/Dream-ki.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>
+                <strong>Dream-ki</strong>
+                <span>Video</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="art-year-section" id="y2024" data-year-section>
+        <span class="year-label">2024</span>
+        <div class="art-grid-scatter">
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/sparks.jpg" alt="Sparks" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>Sparks</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/divine-femininity.jpg" alt="Divine Femininity" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>Divine Femininity</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/the-anointment.jpg" alt="The Anointment" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>The Anointment</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="art-year-section" id="y2023" data-year-section>
+        <span class="year-label">2023</span>
+        <div class="art-grid-scatter">
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/golden.jpg" alt="Golden" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>Golden</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/the-wanderer.jpg" alt="The Wanderer" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>The Wanderer</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/leda.jpg" alt="Leda" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>Leda</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="art-year-section" id="y2022" data-year-section>
+        <span class="year-label">2022</span>
+        <div class="art-grid-scatter">
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/the-lovers.jpg" alt="The Lovers" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>The Lovers</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <figure>
+              <div class="art-frame-img">
+                <img src="assets/images/art/radiance.jpg" alt="Radiance" loading="lazy">
+              </div>
+              <figcaption>
+                <strong>Radiance</strong>
+                <span>Oil on canvas</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="art-item">
+            <a href="https://www.fluxfactory.org/black-bliss-rave/" target="_blank" rel="noopener">
+              <figure>
+                <div class="art-frame-img">
+                  <img src="assets/images/art/black-bliss-flyer-2022.png" alt="Every N*gga Is A Star Trek - Black Bliss Rangers event flyer" loading="lazy">
+                </div>
+                <figcaption>
+                  <strong>Every N*gga Is A Star Trek</strong>
+                  <span>Event flyer, Black Bliss Rangers</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-left">
+      <span>© Zella</span>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:zellavanie@gmail.com" class="footer-link">Email</a>
+      <a href="https://www.instagram.com/zellanealehurston/" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+      <a href="https://x.com/zella_vanie" target="_blank" rel="noopener" class="footer-link">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="fluid-effect.js"></script>
+</body>
+</html>

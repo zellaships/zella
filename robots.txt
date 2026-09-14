@@ -1,0 +1,7 @@
+# Robots.txt for zella.design
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zella.design/sitemap.xml
