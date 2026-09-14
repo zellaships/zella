@@ -1063,6 +1063,24 @@ nav.doors a.active::after {
   text-align: center;
 }
 
+/* Hide browser dots on mobile, keep URL visible */
+@media (max-width: 600px) {
+  .cs-featured-preview .browser-dots {
+    display: none;
+  }
+
+  .cs-featured-preview .browser-chrome {
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  .cs-featured-preview .browser-url {
+    flex: none;
+    width: 100%;
+    font-size: 10px;
+  }
+}
+
 .browser-viewport {
   aspect-ratio: 16 / 10;
   overflow: hidden;
