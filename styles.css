@@ -3565,12 +3565,13 @@ input:focus-visible {
 .cs-card-placeholder:nth-child(4) .cs-card-placeholder-img { background: linear-gradient(135deg, #e8f4ff 0%, #e0f0ff 100%); }
 .cs-card-placeholder:nth-child(5) .cs-card-placeholder-img { background: linear-gradient(135deg, #f0fff0 0%, #e8f8f0 100%); }
 
-.placeholder-visual-canvas {
+.placeholder-visual-canvas,
+.cs-card-placeholder-img canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: inherit;
 }
 
