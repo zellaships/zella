@@ -70,11 +70,28 @@ class LiquidBorder {
 
   bindEvents() {
     window.addEventListener('resize', () => this.resize());
+
+    // Mouse events
     window.addEventListener('mousemove', (e) => {
       this.mouse.py = this.mouse.y;
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
     });
+
+    // Touch events for mobile
+    window.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      this.mouse.py = touch.clientY;
+      this.mouse.x = touch.clientX;
+      this.mouse.y = touch.clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      this.mouse.py = this.mouse.y;
+      this.mouse.x = touch.clientX;
+      this.mouse.y = touch.clientY;
+    }, { passive: true });
   }
 
   resize() {

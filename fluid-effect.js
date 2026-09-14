@@ -121,6 +121,34 @@
         targetMouse.y = -1000;
       });
 
+      // Touch support - orb animates to tap location
+      document.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        if (!mouseOnPage) {
+          // First touch - snap to position
+          smoothMouse.x = touch.clientX;
+          smoothMouse.y = touch.clientY;
+          trailMouse.x = touch.clientX;
+          trailMouse.y = touch.clientY;
+          lastX = touch.clientX;
+          lastY = touch.clientY;
+          mouseOnPage = true;
+        }
+        // Set target - orb will animate toward it
+        targetMouse.x = touch.clientX;
+        targetMouse.y = touch.clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        targetMouse.x = touch.clientX;
+        targetMouse.y = touch.clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', () => {
+        // Keep orb visible at last position, don't hide
+      }, { passive: true });
+
       document.addEventListener('wheel', (e) => {
         targetHue += e.deltaY * 0.1;
         if (targetHue > 230) targetHue = 180;
@@ -306,6 +334,19 @@
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
+
+  // Touch support for letter scatter
+  document.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    mouse.x = touch.clientX;
+    mouse.y = touch.clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    mouse.x = touch.clientX;
+    mouse.y = touch.clientY;
+  }, { passive: true });
 
   const radius = 60;
   const strength = 80;
