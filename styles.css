@@ -3599,23 +3599,16 @@ input:focus-visible {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Different background tints per card */
-.cs-card-placeholder:nth-child(1) .cs-card-placeholder-img { background: linear-gradient(135deg, #f0f0ff 0%, #e8e6ff 100%); }
-.cs-card-placeholder:nth-child(2) .cs-card-placeholder-img { background: linear-gradient(135deg, #e8fff4 0%, #e0f7ec 100%); }
-.cs-card-placeholder:nth-child(3) .cs-card-placeholder-img { background: linear-gradient(135deg, #fff0f7 0%, #ffe8f0 100%); }
-.cs-card-placeholder:nth-child(4) .cs-card-placeholder-img { background: linear-gradient(135deg, #e8f4ff 0%, #e0f0ff 100%); }
-.cs-card-placeholder:nth-child(5) .cs-card-placeholder-img { background: linear-gradient(135deg, #f0fff0 0%, #e8f8f0 100%); }
-
-.placeholder-visual-canvas,
-.cs-card-placeholder-img canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: inherit;
+.cs-card-placeholder-img .lock-icon {
+  width: 32px;
+  height: 32px;
+  color: #bbb;
 }
 
 .cs-card-placeholder .cs-card-title {
