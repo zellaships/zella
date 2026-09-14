@@ -290,9 +290,12 @@ nav.doors a.active::after {
 
 /* Mobile nav - fullscreen overlay */
 @media (max-width: 768px) {
-  /* Override home-locked header z-index on mobile */
-  .home-locked .site-header {
-    z-index: 99998;
+  /* Hide ink-canvas and content when nav is open */
+  body.nav-open #ink-canvas,
+  body.nav-open main,
+  body.nav-open .site-footer {
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 
   .nav-toggle {
@@ -301,6 +304,7 @@ nav.doors a.active::after {
     top: 16px;
     right: 16px;
     z-index: 100001;
+    background: transparent;
   }
 
   nav.doors {
@@ -308,12 +312,10 @@ nav.doors a.active::after {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    background: #000;
+    background: #000 !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -326,18 +328,6 @@ nav.doors a.active::after {
     transform: translateY(-100%);
     -webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-  }
-
-  /* Solid backdrop pseudo-element to block all content */
-  nav.doors::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    z-index: -1;
   }
 
   nav.doors.open {
@@ -1104,6 +1094,8 @@ nav.doors a.active::after {
 /* Featured card live site previews - fluid desktop simulation */
 .cs-featured-preview {
   container-type: inline-size;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .cs-featured-preview .browser-viewport {
@@ -1111,6 +1103,7 @@ nav.doors a.active::after {
   position: relative;
   overflow: hidden;
   background: #f5f5f5;
+  max-width: 100%;
 }
 
 .cs-featured-preview .browser-viewport iframe {
@@ -1120,36 +1113,48 @@ nav.doors a.active::after {
   border: none;
   pointer-events: none;
   animation: none;
-  /* Fixed desktop viewport that gets scaled */
+  /* Fixed desktop viewport that gets scaled to fit container */
   width: 1400px;
   height: 788px;
   transform-origin: top left;
-  /* Default scale for small containers */
-  transform: scale(0.25);
+  /* Scale to fit: container_width / 1400 */
+  transform: scale(0.2);
 }
 
-/* Container query based scaling - fluid and responsive */
-@container (min-width: 300px) {
+/* Container query scaling - precisely calculated */
+@container (min-width: 280px) {
   .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.22);
+    transform: scale(0.2);
   }
 }
 
-@container (min-width: 400px) {
+@container (min-width: 350px) {
   .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.29);
+    transform: scale(0.25);
   }
 }
 
-@container (min-width: 500px) {
+@container (min-width: 420px) {
   .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.36);
+    transform: scale(0.3);
   }
 }
 
-@container (min-width: 600px) {
+@container (min-width: 490px) {
   .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.43);
+    transform: scale(0.35);
+  }
+}
+
+@container (min-width: 560px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.4);
+  }
+}
+
+@container (min-width: 630px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.45);
   }
 }
 
