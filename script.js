@@ -15,35 +15,58 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile nav toggle
+  // Mobile nav toggle with overlay
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('nav.doors');
 
+  // Create overlay if it doesn't exist
+  let navOverlay = document.querySelector('.nav-overlay');
+  if (!navOverlay && nav) {
+    navOverlay = document.createElement('div');
+    navOverlay.className = 'nav-overlay';
+    navOverlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(navOverlay);
+  }
+
+  function closeNav() {
+    nav.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (navOverlay) navOverlay.classList.remove('open');
+  }
+
+  function openNav() {
+    nav.classList.add('open');
+    navToggle.classList.add('active');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (navOverlay) navOverlay.classList.add('open');
+  }
+
   if (navToggle && nav) {
     navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      navToggle.classList.toggle('active', isOpen);
-      navToggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (nav.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
+
+    // Close nav when clicking overlay
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeNav);
+    }
 
     // Close nav when clicking a link
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
     });
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeNav();
       }
     });
   }
