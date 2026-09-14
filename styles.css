@@ -281,7 +281,7 @@ nav.doors a.active::after {
   .nav-toggle {
     display: block !important;
     position: relative;
-    z-index: 1001;
+    z-index: 10000 !important;
   }
 
   nav.doors {
@@ -307,8 +307,9 @@ nav.doors a.active::after {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 opacity 0.4s ease,
                 visibility 0.4s ease !important;
-    z-index: 1000 !important;
+    z-index: 9999 !important;
     box-shadow: none !important;
+    isolation: isolate !important;
   }
 
   nav.doors.open {
@@ -338,6 +339,8 @@ nav.doors a.active::after {
     -webkit-tap-highlight-color: transparent !important;
     touch-action: manipulation !important;
     text-align: center !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   nav.doors a:first-child {
