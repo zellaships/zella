@@ -993,7 +993,6 @@ nav.doors a.active::after {
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
-  min-height: 396px;
   position: relative;
   background: var(--paper);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -1053,6 +1052,8 @@ nav.doors a.active::after {
   display: flex;
   flex-direction: column;
   container-type: inline-size;
+  align-self: start;
+  height: fit-content;
 }
 
 .browser-chrome {
