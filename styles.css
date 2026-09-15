@@ -4082,7 +4082,7 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 0;
-  max-width: 600px;
+  max-width: 380px;
   border-bottom: 2px solid var(--ink);
   padding-bottom: var(--space-xs);
 }
@@ -4110,14 +4110,16 @@ input:focus-visible {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: var(--text-2xl);
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--ink);
-  opacity: 0.35;
-  transition: opacity 0.15s ease;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .cs-gate-form-inline button:hover {
   opacity: 1;
+  transform: translateX(4px);
 }
 
 .cs-gate-error {
