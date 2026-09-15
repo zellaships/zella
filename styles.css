@@ -82,6 +82,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 body {
@@ -138,6 +140,24 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* Zoom containment - zooming should only affect the image container */
+.cs-browser-frame,
+.browser-viewport,
+.cs-image-full,
+.cs-hero-image,
+.cs-showcase-scroll {
+  isolation: isolate;
+  contain: layout paint;
+  overflow: hidden;
+}
+
+/* Prevent zoom from affecting whisper text */
+.cs-whisper {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(0);
 }
 
 .wrap {
@@ -574,11 +594,19 @@ nav.doors a.active::after {
 }
 
 .home-locked .essay-wide h1 {
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  line-height: 1.25;
+  font-size: clamp(1.5rem, 2.8vw, 2.75rem);
+  line-height: 1.3;
   max-width: 100%;
   position: relative;
   z-index: 201;
+}
+
+/* Mobile homepage - ensure proper sizing to prevent zoom-in on load */
+@media (max-width: 600px) {
+  .home-locked .essay-wide h1 {
+    font-size: 1.35rem;
+    line-height: 1.35;
+  }
 }
 
 .home-locked .site-footer {
@@ -1177,22 +1205,15 @@ nav.doors a.active::after {
   pointer-events: auto;
 }
 
-/* Reduce iframe preview size on mobile */
+/* Mobile iframe preview - sized like the Along card reference */
 @media (max-width: 600px) {
   .cs-featured-preview .browser-viewport {
-    height: 140px;
+    height: 220px;
   }
   .cs-featured-preview .browser-viewport iframe {
-    --iframe-scale: 0.18;
-  }
-}
-
-@media (max-width: 400px) {
-  .cs-featured-preview .browser-viewport {
-    height: 120px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    --iframe-scale: 0.15;
+    --iframe-scale: 0.22;
+    pointer-events: auto;
+    touch-action: pan-y;
   }
 }
 
@@ -2708,6 +2729,68 @@ body.case-study-ipg .cs-hero-image img {
   border: none;
 }
 
+/* PDF Controls - fullscreen and download buttons */
+.cs-pdf-embed,
+.cs-embed-wrapper {
+  position: relative;
+}
+
+.pdf-controls {
+  position: absolute;
+  bottom: var(--space-s);
+  right: var(--space-s);
+  display: flex;
+  gap: var(--space-xs);
+  z-index: 10;
+}
+
+.pdf-fullscreen,
+.pdf-download {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pdf-fullscreen:hover,
+.pdf-download:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.pdf-fullscreen svg,
+.pdf-download svg {
+  flex-shrink: 0;
+}
+
+/* Mobile: stack controls, hide text labels */
+@media (max-width: 600px) {
+  .pdf-controls {
+    bottom: var(--space-xs);
+    right: var(--space-xs);
+    gap: var(--space-2xs);
+  }
+
+  .pdf-fullscreen,
+  .pdf-download {
+    padding: 10px;
+  }
+
+  .pdf-fullscreen span,
+  .pdf-download span {
+    display: none;
+  }
+}
+
 .cs-download-link {
   display: inline-block;
   padding: var(--space-s) var(--space-m);
@@ -2798,6 +2881,21 @@ body.case-study-ipg .cs-hero-image img {
   border: none;
   pointer-events: none;
   animation: scrollIframe 20s ease-in-out infinite;
+}
+
+/* Mobile: make scroll images STATIC (no animation) */
+@media (max-width: 768px) {
+  .browser-viewport .scroll-img-drag {
+    animation: none;
+    position: static;
+    transform: none;
+  }
+
+  .browser-viewport iframe {
+    animation: none;
+    transform: none;
+    height: 100%;
+  }
 }
 
 @keyframes scrollIframe {
@@ -3218,6 +3316,20 @@ body.case-study .cs-embed-full {
 @media (prefers-reduced-motion: reduce) {
   .cs-showcase-scroll .showcase-img {
     animation: none;
+  }
+}
+
+/* Mobile: make showcase scroll STATIC */
+@media (max-width: 768px) {
+  .cs-showcase-scroll .showcase-img {
+    animation: none;
+    transform: none;
+  }
+
+  .cs-showcase-scroll .showcase-viewport {
+    height: auto;
+    max-height: 400px;
+    overflow: hidden;
   }
 }
 
