@@ -936,6 +936,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // PDF Library tabs
   const libraryTabs = document.querySelectorAll('.cs-library-tab');
   const pdfViewer = document.getElementById('libraryPdfViewer');
+  const pdfFullscreen = document.getElementById('libraryPdfFullscreen');
+  const pdfDownload = document.getElementById('libraryPdfDownload');
 
   if (libraryTabs.length && pdfViewer) {
     const pdfMap = {
@@ -963,6 +965,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update PDF viewer
         pdfViewer.src = pdfPath + '#toolbar=0&navpanes=0';
+
+        // Update PDF control links
+        if (pdfFullscreen) pdfFullscreen.href = pdfPath;
+        if (pdfDownload) pdfDownload.href = pdfPath;
       });
     });
   }
