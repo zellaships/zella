@@ -15,6 +15,12 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to top on page load (prevent browser scroll restoration)
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // Mobile nav toggle with overlay
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('nav.doors');
