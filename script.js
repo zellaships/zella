@@ -572,6 +572,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }, { passive: true });
+
+    // Trackpad pinch-zoom support - zoom only affects the image
+    let currentZoom = 1;
+    const minZoom = 1;
+    const maxZoom = 4;
+
+    const resetZoom = () => {
+      currentZoom = 1;
+      lightboxImg.style.transform = 'scale(1)';
+      lightboxImg.style.cursor = 'zoom-in';
+    };
+
+    // Reset zoom when changing images
+    const originalShowImage = showImage;
+    showImage = (flowImages, index) => {
+      resetZoom();
+      originalShowImage(flowImages, index);
+    };
+
+    // Wheel event with ctrlKey = trackpad pinch zoom
+    lightbox.addEventListener('wheel', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+
+      // ctrlKey indicates pinch-zoom gesture on trackpad
+      if (e.ctrlKey) {
+        e.preventDefault();
+
+        const zoomDelta = e.deltaY > 0 ? 0.9 : 1.1;
+        currentZoom = Math.min(maxZoom, Math.max(minZoom, currentZoom * zoomDelta));
+
+        lightboxImg.style.transform = `scale(${currentZoom})`;
+        lightboxImg.style.cursor = currentZoom > 1 ? 'zoom-out' : 'zoom-in';
+      }
+    }, { passive: false });
+
+    // Click image to toggle zoom
+    lightboxImg.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentZoom > 1) {
+        resetZoom();
+      } else {
+        currentZoom = 2;
+        lightboxImg.style.transform = 'scale(2)';
+        lightboxImg.style.cursor = 'zoom-out';
+      }
+    });
+
+    // Reset zoom on close
+    const originalCloseLightbox = closeLightbox;
+    closeLightbox = () => {
+      resetZoom();
+      originalCloseLightbox();
+    };
   }
 
   // Card glow effect (featured + regular case study cards + designer sidebar)

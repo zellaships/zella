@@ -3130,6 +3130,9 @@ body.case-study-ipg .cs-hero-image img {
   border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   touch-action: pinch-zoom;
+  transform-origin: center center;
+  transition: transform 0.15s ease-out;
+  cursor: zoom-in;
 }
 
 .cs-lightbox-prev,
@@ -3297,6 +3300,7 @@ body.case-study .cs-image-grid img {
   color: var(--ink-soft);
   line-height: 1.5;
   text-align: center;
+  margin-top: var(--space-s);
 }
 
 .cs-image-full figcaption {
