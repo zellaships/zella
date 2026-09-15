@@ -775,7 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="cs-gate-box">
         <span class="cs-gate-label">Protected Work</span>
         <form class="cs-gate-form-inline" id="csPageGateForm">
-          <input type="password" id="csPagePassword" placeholder="Enter password" autocomplete="off" spellcheck="false">
+          <input type="password" id="csPagePassword" placeholder="Type password and press Enter" autocomplete="off" spellcheck="false">
           <button type="submit" aria-label="Submit">→</button>
         </form>
         <span class="cs-gate-error" id="csPageGateError"></span>
