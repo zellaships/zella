@@ -1266,6 +1266,12 @@ nav.doors a.active::after {
   padding: var(--space-xl) 0 var(--space-2xl);
 }
 
+@media (max-width: 480px) {
+  .cs-grid {
+    gap: var(--space-m);
+  }
+}
+
 @media (min-width: 700px) {
   .cs-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1281,6 +1287,12 @@ nav.doors a.active::after {
   border-radius: 12px;
   background: var(--paper);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 480px) {
+  .cs-card {
+    padding: var(--space-s);
+  }
 }
 
 .cs-card-image {
@@ -1458,6 +1470,15 @@ nav.doors a.active::after {
   margin: 0;
   color: var(--ink);
   transition: color 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 480px) {
+  .cs-card-title {
+    font-size: var(--text-xl);
+  }
 }
 
 .cs-card:hover .cs-card-title {
@@ -2274,7 +2295,6 @@ nav.doors a.active::after {
 }
 
 @media (hover: none) {
-  .cs-card:hover,
   .doors-list a:hover {
     padding-left: 0;
   }
