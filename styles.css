@@ -1139,7 +1139,7 @@ nav.doors a.active::after {
 /* Featured card live site previews - fluid desktop simulation */
 .cs-featured-preview {
   container-type: inline-size;
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -1147,9 +1147,9 @@ nav.doors a.active::after {
   position: relative;
   overflow: hidden;
   background: #f5f5f5;
-  max-width: 100%;
-  /* Height matches scaled iframe: 788px * scale */
-  height: 158px;
+  width: 100%;
+  /* Height = width * (788/1400) to maintain aspect ratio */
+  aspect-ratio: 1400 / 788;
 }
 
 .cs-featured-preview .browser-viewport iframe {
@@ -1158,67 +1158,12 @@ nav.doors a.active::after {
   left: 0;
   border: none;
   pointer-events: none;
-  animation: none;
-  /* Fixed desktop viewport that gets scaled to fit container */
+  /* Fixed desktop viewport */
   width: 1400px;
   height: 788px;
   transform-origin: top left;
-  transform: scale(0.2);
-}
-
-/* Container query scaling - height matches 788 * scale */
-@container (min-width: 280px) {
-  .cs-featured-preview .browser-viewport {
-    height: 158px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.2);
-  }
-}
-
-@container (min-width: 350px) {
-  .cs-featured-preview .browser-viewport {
-    height: 197px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.25);
-  }
-}
-
-@container (min-width: 420px) {
-  .cs-featured-preview .browser-viewport {
-    height: 236px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.3);
-  }
-}
-
-@container (min-width: 490px) {
-  .cs-featured-preview .browser-viewport {
-    height: 276px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.35);
-  }
-}
-
-@container (min-width: 560px) {
-  .cs-featured-preview .browser-viewport {
-    height: 315px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.4);
-  }
-}
-
-@container (min-width: 630px) {
-  .cs-featured-preview .browser-viewport {
-    height: 355px;
-  }
-  .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.45);
-  }
+  /* Scale = container_width / 1400, using 100cqw */
+  transform: scale(calc(100cqw / 1400px));
 }
 
 /* ---------- Case Study Grid ---------- */
