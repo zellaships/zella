@@ -368,6 +368,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Draggable scroll for iframe previews (featured cards)
+  const iframeViewports = document.querySelectorAll('.cs-featured-preview .browser-viewport');
+  iframeViewports.forEach(viewport => {
+    const iframe = viewport.querySelector('iframe');
+    if (!iframe) return;
+
+    let isDragging = false;
+    let startY = 0;
+    let currentTop = 0;
+
+    // The iframe is 300% height scaled to 0.5 = 150% visual height
+    // So we can scroll 50% of the container height
+    const getMaxScroll = () => viewport.offsetHeight * 0.5;
+
+    const clampTop = (value) => {
+      const maxScroll = getMaxScroll();
+      return Math.max(-maxScroll, Math.min(0, value));
+    };
+
+    viewport.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startY = e.clientY;
+      currentTop = parseFloat(iframe.style.top) || 0;
+      viewport.classList.add('is-dragging');
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaY = e.clientY - startY;
+      const newTop = clampTop(currentTop + deltaY);
+      iframe.style.top = `${newTop}px`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        viewport.classList.remove('is-dragging');
+      }
+    });
+
+    // Touch support
+    viewport.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startY = e.touches[0].clientY;
+      currentTop = parseFloat(iframe.style.top) || 0;
+      viewport.classList.add('is-dragging');
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const deltaY = e.touches[0].clientY - startY;
+      const newTop = clampTop(currentTop + deltaY);
+      iframe.style.top = `${newTop}px`;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', () => {
+      isDragging = false;
+      viewport.classList.remove('is-dragging');
+    });
+  });
+
   // Case study image lightbox with flow navigation
   const flowFrames = document.querySelectorAll('.cs-flow-frame img, .cs-image-full img, .cs-image-grid img, .cs-split-image img');
   if (flowFrames.length) {
