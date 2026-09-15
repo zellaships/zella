@@ -79,12 +79,20 @@
   padding: 0;
 }
 
+/* Prevent pinch-zoom on mobile */
+@media (max-width: 768px) {
+  html, body {
+    touch-action: pan-x pan-y;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  touch-action: manipulation;
+  touch-action: pan-y;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -97,6 +105,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
 }
 
 /* Semi Mono for display typography (headings, nav, labels, stats) */
@@ -165,6 +175,12 @@ img {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 var(--wrap-padding);
+  overflow-x: hidden;
+}
+
+main {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ---------- Header / nav ---------- */
@@ -654,9 +670,9 @@ nav.doors a.active::after {
   overflow: hidden;
   padding: var(--space-l) 0;
   margin: var(--space-xl) 0;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  width: 100vw;
+  margin-left: calc(-1 * var(--wrap-padding));
+  margin-right: calc(-1 * var(--wrap-padding));
+  width: calc(100% + 2 * var(--wrap-padding));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -705,6 +721,22 @@ nav.doors a.active::after {
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee-track {
     animation: none;
+  }
+}
+
+/* Mobile: smaller logos, static grid instead of marquee */
+@media (max-width: 600px) {
+  .logo-marquee-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-m);
+    padding: 0 var(--space-s);
+  }
+
+  .logo-marquee-track img {
+    height: 48px;
   }
 }
 
@@ -1428,16 +1460,13 @@ nav.doors a.active::after {
   padding: 0;
   margin: 0 0 var(--space-xs);
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: var(--space-2xs);
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .cs-card-tags li {
   font-size: var(--text-xs);
   color: var(--ink-soft);
-  flex-shrink: 0;
 }
 
 .cs-card-tags li:not(:last-child)::after {
