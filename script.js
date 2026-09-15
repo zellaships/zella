@@ -5,6 +5,12 @@
 // gate UI should call a server route / middleware that checks the code
 // before the case study content is ever sent to the browser.
 
+// Prevent browser scroll restoration - run immediately
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // Register Service Worker for caching
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -15,10 +21,7 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll to top on page load (prevent browser scroll restoration)
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
+  // Also scroll to top after DOM loads in case it shifted
   window.scrollTo(0, 0);
 
   // Mobile nav toggle with overlay
@@ -360,77 +363,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const deltaY = e.touches[0].clientY - startY;
       const newTranslate = clampTranslate(currentTranslate + deltaY);
       img.style.transform = `translateY(${newTranslate}px)`;
-    }, { passive: true });
-
-    viewport.addEventListener('touchend', () => {
-      isDragging = false;
-      viewport.classList.remove('is-dragging');
-    });
-  });
-
-  // Draggable scroll for iframe previews (featured cards)
-  const iframeViewports = document.querySelectorAll('.cs-featured-preview .browser-viewport');
-  iframeViewports.forEach(viewport => {
-    const iframe = viewport.querySelector('iframe');
-    if (!iframe) return;
-
-    let isDragging = false;
-    let startY = 0;
-    let currentTop = 0;
-
-    // iframe is 2400px tall, scaled down. Calculate visual height minus container
-    const getMaxScroll = () => {
-      const style = window.getComputedStyle(iframe);
-      const transform = style.transform;
-      let scale = 0.5;
-      if (transform && transform !== 'none') {
-        const matrix = new DOMMatrix(transform);
-        scale = matrix.a; // scale factor from transform matrix
-      }
-      const visualHeight = 2400 * scale;
-      return Math.max(0, visualHeight - viewport.offsetHeight);
-    };
-
-    const clampTop = (value) => {
-      const maxScroll = getMaxScroll();
-      return Math.max(-maxScroll, Math.min(0, value));
-    };
-
-    viewport.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startY = e.clientY;
-      currentTop = parseFloat(iframe.style.top) || 0;
-      viewport.classList.add('is-dragging');
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const deltaY = e.clientY - startY;
-      const newTop = clampTop(currentTop + deltaY);
-      iframe.style.top = `${newTop}px`;
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        viewport.classList.remove('is-dragging');
-      }
-    });
-
-    // Touch support
-    viewport.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      startY = e.touches[0].clientY;
-      currentTop = parseFloat(iframe.style.top) || 0;
-      viewport.classList.add('is-dragging');
-    }, { passive: true });
-
-    viewport.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const deltaY = e.touches[0].clientY - startY;
-      const newTop = clampTop(currentTop + deltaY);
-      iframe.style.top = `${newTop}px`;
     }, { passive: true });
 
     viewport.addEventListener('touchend', () => {
