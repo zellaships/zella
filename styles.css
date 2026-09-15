@@ -1148,8 +1148,8 @@ nav.doors a.active::after {
   overflow: hidden;
   background: #f5f5f5;
   width: 100%;
-  /* Height = width * (788/1400) to maintain aspect ratio */
-  aspect-ratio: 1400 / 788;
+  aspect-ratio: 1400 / 900 !important;
+  cursor: default !important;
 }
 
 .cs-featured-preview .browser-viewport iframe {
@@ -1157,13 +1157,12 @@ nav.doors a.active::after {
   top: 0;
   left: 0;
   border: none;
-  pointer-events: none;
-  /* Fixed desktop viewport */
-  width: 1400px;
-  height: 788px;
+  width: 1400px !important;
+  height: 900px !important;
   transform-origin: top left;
-  /* Scale = container_width / 1400, using 100cqw */
-  transform: scale(calc(100cqw / 1400px));
+  transform: scale(calc(100cqw / 1400px)) !important;
+  animation: none !important;
+  pointer-events: auto;
 }
 
 /* ---------- Case Study Grid ---------- */
