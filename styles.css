@@ -2091,8 +2091,23 @@ nav.doors a.active::after {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.5s ease;
   pointer-events: none;
+}
+
+/* Blur-up progressive image loading */
+.art-frame-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.art-frame-img img[data-src] {
+  opacity: 0;
+}
+
+.art-frame-img img.loaded {
+  opacity: 1;
 }
 
 .art-hover-overlay {

@@ -24,6 +24,35 @@ document.addEventListener('DOMContentLoaded', () => {
   // Also scroll to top after DOM loads in case it shifted
   window.scrollTo(0, 0);
 
+  // Progressive image loading with blur-up effect
+  const lazyImages = document.querySelectorAll('img[data-src]');
+  if (lazyImages.length > 0) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.dataset.src;
+
+          // Preload the full image
+          const fullImage = new Image();
+          fullImage.onload = () => {
+            img.src = src;
+            img.classList.add('loaded');
+            img.removeAttribute('data-src');
+          };
+          fullImage.src = src;
+
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px', // Start loading 100px before entering viewport
+      threshold: 0.01
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+  }
+
   // Mobile nav toggle with overlay
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('nav.doors');
