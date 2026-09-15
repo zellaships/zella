@@ -54,13 +54,13 @@
   --space-2xl: clamp(4rem, 2.5rem + 7.5vw, 9rem);
   --space-3xl: clamp(6rem, 4rem + 10vw, 12rem);
 
-  /* Fluid typography */
-  --text-2xs: clamp(0.625rem, 0.58rem + 0.2vw, 0.75rem);
-  --text-xs: clamp(0.6875rem, 0.63rem + 0.3vw, 0.875rem);
-  --text-s: clamp(0.8125rem, 0.75rem + 0.3vw, 0.9375rem);
-  --text-base: clamp(0.9375rem, 0.875rem + 0.3vw, 1.0625rem);
-  --text-m: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
-  --text-l: clamp(1.125rem, 0.95rem + 0.9vw, 1.5rem);
+  /* Fluid typography - larger mobile minimums */
+  --text-2xs: clamp(0.6875rem, 0.58rem + 0.2vw, 0.75rem);
+  --text-xs: clamp(0.75rem, 0.63rem + 0.3vw, 0.875rem);
+  --text-s: clamp(0.875rem, 0.75rem + 0.3vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.875rem + 0.3vw, 1.0625rem);
+  --text-m: clamp(1.0625rem, 0.9rem + 0.5vw, 1.25rem);
+  --text-l: clamp(1.1875rem, 0.95rem + 0.9vw, 1.5rem);
   --text-xl: clamp(1.375rem, 1.1rem + 1.4vw, 2rem);
   --text-2xl: clamp(1.625rem, 1.2rem + 2.1vw, 2.75rem);
   --text-3xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);
@@ -107,6 +107,9 @@ body {
   overflow-x: hidden;
   max-width: 100%;
   position: relative;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 /* Semi Mono for display typography (headings, nav, labels, stats) */
@@ -481,20 +484,29 @@ nav.doors a.active::after {
   order: 1;
 }
 
-/* Chunky mobile footer links */
+/* Mobile footer - compact, centered */
 @media (max-width: 599px) {
   .site-footer {
-    padding: var(--space-l) 0 var(--space-xl);
-    margin-top: var(--space-xl);
+    padding: var(--space-m) 0;
+    margin-top: var(--space-l);
     position: relative;
     z-index: 10;
     background: var(--paper);
   }
 
+  .site-footer .wrap {
+    justify-content: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+    gap: var(--space-m);
+  }
+
   .footer-link {
-    font-size: var(--text-l);
+    font-size: var(--text-m);
     font-weight: 500;
-    padding: var(--space-xs) 0;
+    padding: var(--space-2xs) 0;
   }
 }
 
@@ -724,19 +736,15 @@ nav.doors a.active::after {
   }
 }
 
-/* Mobile: smaller logos, static grid instead of marquee */
+/* Mobile: keep marquee scrolling but smaller logos */
 @media (max-width: 600px) {
   .logo-marquee-track {
-    animation: none;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-m);
-    padding: 0 var(--space-s);
+    animation: marquee-scroll 20s linear infinite;
+    gap: var(--space-xl);
   }
 
   .logo-marquee-track img {
-    height: 48px;
+    height: 40px;
   }
 }
 
@@ -1108,7 +1116,6 @@ nav.doors a.active::after {
   margin-bottom: var(--space-m);
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
 }
 
 /* Mobile featured cards - ensure text fits */
@@ -1158,7 +1165,7 @@ nav.doors a.active::after {
 .browser-chrome {
   display: flex;
   align-items: center;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0;
   gap: var(--space-s);
   padding: 10px 14px;
   background: #e8e8e8;
@@ -1407,14 +1414,15 @@ nav.doors a.active::after {
     object-fit: cover;
   }
 
-  /* CZI mobile - show dashboard content */
+  /* CZI mobile - show dashboard top, not bottom */
   .cs-card[href="case-study-czi.html"] .scroll-img {
-    object-position: left bottom;
+    object-position: left top;
   }
 
-  /* IPG mobile - center on phone top */
+  /* IPG mobile - center phone in view */
   .cs-card[href="case-study-ipg.html"] .scroll-img {
-    object-position: center top;
+    object-fit: contain;
+    object-position: center center;
   }
 }
 
@@ -1501,7 +1509,6 @@ nav.doors a.active::after {
   transition: color 0.2s ease;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 @media (max-width: 480px) {
