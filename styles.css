@@ -1245,7 +1245,7 @@ nav.doors a.active::after {
 }
 
 /* Featured card live site previews - fluid desktop simulation
-   Key: scale is calculated so 1440px iframe fits container width exactly */
+   Iframe renders at 1440px, scaled down to fit container via percentage */
 .cs-featured-preview .browser-viewport {
   position: relative;
   overflow: hidden;
@@ -1259,32 +1259,42 @@ nav.doors a.active::after {
   top: 0;
   left: 0;
   border: none;
-  /* Iframe renders at 1440px wide, we scale it to fit container */
   width: 1440px;
-  height: 900px; /* 16:10 ratio of 1440px */
+  height: 900px;
   transform-origin: top left;
-  /* Scale = container width / 1440. Container is 100% of parent.
-     We use a CSS trick: scale to 100% of container width */
-  transform: scale(calc(100cqw / 1440));
+  /* Use percentage-based scaling: 100% width / 1440px = scale factor */
+  transform: scale(0.35);
   pointer-events: none;
 }
 
-/* Fallback for browsers without container queries */
-@supports not (container-type: inline-size) {
+/* Scale up as viewport gets larger */
+@media (min-width: 480px) {
   .cs-featured-preview .browser-viewport iframe {
-    transform: scale(0.35);
+    transform: scale(0.38);
   }
+}
 
-  @media (min-width: 600px) {
-    .cs-featured-preview .browser-viewport iframe {
-      transform: scale(0.4);
-    }
+@media (min-width: 600px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.42);
   }
+}
 
-  @media (min-width: 900px) {
-    .cs-featured-preview .browser-viewport iframe {
-      transform: scale(0.5);
-    }
+@media (min-width: 768px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.38);
+  }
+}
+
+@media (min-width: 900px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.42);
+  }
+}
+
+@media (min-width: 1100px) {
+  .cs-featured-preview .browser-viewport iframe {
+    transform: scale(0.48);
   }
 }
 
@@ -1418,21 +1428,21 @@ nav.doors a.active::after {
   }
 }
 
-/* CZI card - show dashboard content, crop top whitespace */
+/* CZI card - start at top of dashboard, scroll down to show more */
 .cs-card[href="case-study-czi.html"] .scroll-img {
   animation-name: card-scroll-czi;
-  transform: translateY(-30%);
+  transform: translateY(0);
 }
 
 @keyframes card-scroll-czi {
   0%, 5% {
-    transform: translateY(-30%);
+    transform: translateY(0);
   }
   45%, 55% {
-    transform: translateY(-55%);
+    transform: translateY(-40%);
   }
   95%, 100% {
-    transform: translateY(-30%);
+    transform: translateY(0);
   }
 }
 
@@ -3328,9 +3338,8 @@ body.case-study .cs-embed-full {
 .cs-embed-wrapper {
   position: relative;
   width: 100%;
-  height: 85vh;
-  min-height: 700px;
-  max-height: 900px;
+  aspect-ratio: 1 / 1;
+  max-height: 600px;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(88, 101, 242, 0.12);
@@ -3347,9 +3356,8 @@ body.case-study .cs-embed-full {
   }
 
   .cs-embed-wrapper {
-    min-height: 280px;
-    max-height: 400px;
-    height: 50vh;
+    aspect-ratio: 1 / 1;
+    max-height: 350px;
     border-radius: 8px;
   }
 }
@@ -4358,7 +4366,7 @@ input:focus-visible {
 
 .cs-library-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-xs);
   margin-bottom: var(--space-m);
 }
@@ -4403,13 +4411,19 @@ input:focus-visible {
 }
 
 @media (max-width: 600px) {
+  .cs-library-tabs {
+    gap: var(--space-2xs);
+    justify-content: space-between;
+  }
+
   .cs-library-tab .tab-title {
     display: none;
   }
 
   .cs-library-tab {
-    padding: var(--space-s);
-    min-width: 48px;
+    padding: var(--space-xs) var(--space-s);
+    min-width: 44px;
+    flex: 1;
     justify-content: center;
   }
 
@@ -4428,14 +4442,14 @@ input:focus-visible {
 
 .cs-library-frame {
   aspect-ratio: 8.5 / 11;
-  max-height: 80vh;
+  max-height: 65vh;
   background: #e0e0e0;
 }
 
 /* Library frame mobile - smaller size */
 @media (max-width: 600px) {
   .cs-library-frame {
-    max-height: 55vh;
+    max-height: 50vh;
   }
 }
 
