@@ -776,8 +776,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // Hash comparison instead of plain text
       if (_h(value) === _ph) {
         _su();
-        unlockDesignerPage();
-        input.value = '';
+        // Show success message before unlocking
+        error.textContent = '';
+        csGateForm.classList.add('success');
+        input.value = '✓ Unlocked';
+        input.disabled = true;
+
+        setTimeout(() => {
+          unlockDesignerPage();
+          csGateForm.classList.remove('success');
+          input.value = '';
+          input.disabled = false;
+        }, 800);
       } else {
         error.textContent = 'Incorrect password';
         csGateForm.classList.add('shake');

@@ -84,6 +84,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   touch-action: manipulation;
+  overflow-x: hidden;
 }
 
 body {
@@ -611,7 +612,7 @@ nav.doors a.active::after {
 
 .home-locked .site-footer {
   margin-top: 0;
-  padding: var(--space-m) 0;
+  padding: var(--space-s) 0;
   background: var(--green);
   border: none !important;
   border-top: none !important;
@@ -640,10 +641,10 @@ nav.doors a.active::after {
   background: #fff;
 }
 
-/* Homepage footer mobile spacing */
+/* Homepage footer mobile spacing - compact */
 @media (max-width: 768px) {
   .home-locked .site-footer {
-    padding: var(--space-l) 0 var(--space-xl);
+    padding: var(--space-s) 0 var(--space-m);
   }
 }
 
@@ -1055,6 +1056,9 @@ nav.doors a.active::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .cs-featured-title {
@@ -1070,6 +1074,24 @@ nav.doors a.active::after {
   line-height: 1.6;
   color: var(--ink-soft);
   margin-bottom: var(--space-m);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Mobile featured cards - ensure text fits */
+@media (max-width: 600px) {
+  .cs-featured-card {
+    padding: var(--space-s);
+  }
+
+  .cs-featured-title {
+    font-size: var(--text-xl);
+  }
+
+  .cs-featured-desc {
+    font-size: var(--text-base);
+  }
 }
 
 .cs-featured-links {
@@ -4080,6 +4102,23 @@ input:focus-visible {
 
 .cs-gate-form-inline.shake input {
   color: #c53030;
+}
+
+/* Success state for password */
+.cs-gate-form-inline.success {
+  animation: pulse-success 0.4s ease;
+}
+
+.cs-gate-form-inline.success input {
+  color: var(--green);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+@keyframes pulse-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
 /* Case study page gate - full page overlay */
