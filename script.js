@@ -378,9 +378,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let startY = 0;
     let currentTop = 0;
 
-    // The iframe is 300% height scaled to 0.5 = 150% visual height
-    // So we can scroll 50% of the container height
-    const getMaxScroll = () => viewport.offsetHeight * 0.5;
+    // iframe is 2400px tall, scaled down. Calculate visual height minus container
+    const getMaxScroll = () => {
+      const style = window.getComputedStyle(iframe);
+      const transform = style.transform;
+      let scale = 0.5;
+      if (transform && transform !== 'none') {
+        const matrix = new DOMMatrix(transform);
+        scale = matrix.a; // scale factor from transform matrix
+      }
+      const visualHeight = 2400 * scale;
+      return Math.max(0, visualHeight - viewport.offsetHeight);
+    };
 
     const clampTop = (value) => {
       const maxScroll = getMaxScroll();
