@@ -3034,6 +3034,7 @@ body.case-study-ipg .cs-hero-image img {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  touch-action: none;
 }
 
 .cs-lightbox.active {
@@ -3042,7 +3043,7 @@ body.case-study-ipg .cs-hero-image img {
 }
 
 .cs-lightbox-close {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   width: 44px;
@@ -3057,6 +3058,8 @@ body.case-study-ipg .cs-hero-image img {
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease;
+  z-index: 10001;
+  touch-action: none;
 }
 
 .cs-lightbox-close:hover {
@@ -3078,11 +3081,12 @@ body.case-study-ipg .cs-hero-image img {
   object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  touch-action: pinch-zoom;
 }
 
 .cs-lightbox-prev,
 .cs-lightbox-next {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   width: 64px;
@@ -3097,7 +3101,8 @@ body.case-study-ipg .cs-hero-image img {
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease, border-color 0.2s ease;
-  z-index: 10;
+  z-index: 10001;
+  touch-action: none;
 }
 
 .cs-lightbox-prev:hover,
@@ -3115,20 +3120,33 @@ body.case-study-ipg .cs-hero-image img {
 }
 
 .cs-lightbox-caption {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   font-size: var(--text-s);
   text-align: center;
   max-width: 70ch;
-  margin: var(--space-m) auto 0;
+  width: 90vw;
   opacity: 0.85;
   line-height: 1.5;
+  z-index: 10001;
+  touch-action: none;
+  pointer-events: none;
 }
 
 .cs-lightbox-counter {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.6);
   font-size: var(--text-xs);
   text-align: center;
-  margin-top: var(--space-xs);
+  z-index: 10001;
+  touch-action: none;
+  pointer-events: none;
 }
 
 .cs-image-full {

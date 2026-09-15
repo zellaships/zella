@@ -823,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="cs-gate-box">
         <span class="cs-gate-label">Protected Work</span>
         <form class="cs-gate-form-inline" id="csPageGateForm">
-          <input type="password" id="csPagePassword" placeholder="Type password and press Enter" autocomplete="off" spellcheck="false">
+          <input type="password" id="csPagePassword" placeholder="Password" autocomplete="off" spellcheck="false">
           <button type="submit" aria-label="Submit">→</button>
         </form>
         <span class="cs-gate-error" id="csPageGateError"></span>
@@ -841,8 +841,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (_h(value) === _ph) {
         _su();
-        pageGate.classList.add('unlocked');
-        pageInput.value = '';
+        // Show success state before unlocking
+        pageError.textContent = '';
+        pageForm.classList.add('success');
+        pageInput.value = '✓ Unlocked';
+        pageInput.disabled = true;
+
+        setTimeout(() => {
+          pageGate.classList.add('unlocked');
+          pageForm.classList.remove('success');
+          pageInput.value = '';
+          pageInput.disabled = false;
+        }, 800);
       } else {
         pageError.textContent = 'Incorrect password';
         pageForm.classList.add('shake');
