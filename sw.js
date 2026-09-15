@@ -3,7 +3,7 @@
  * Caches static assets for faster repeat visits
  */
 
-const CACHE_NAME = 'zella-v1';
+const CACHE_NAME = 'zella-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -13,8 +13,7 @@ const STATIC_ASSETS = [
   '/script.js',
   '/fluid-effect.js',
   '/liquid-border.js',
-  '/assets/fonts/Helvetica.ttf',
-  '/assets/fonts/Helvetica-Bold.ttf',
+  '/assets/fonts/ABCArealSuperfamilyVariable.woff2',
   '/assets/images/zella-logo.png'
 ];
 
