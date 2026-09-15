@@ -283,6 +283,11 @@ nav.doors {
   gap: clamp(1.25rem, 1rem + 2vw, 2.25rem);
 }
 
+/* Hide HOME link on desktop - logo serves this purpose */
+nav.doors a[href="index.html"]:first-child {
+  display: none;
+}
+
 nav.doors a {
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
@@ -424,6 +429,11 @@ nav.doors a.active::after {
     -webkit-tap-highlight-color: transparent;
     position: relative;
     transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Show HOME link on mobile */
+  nav.doors a[href="index.html"]:first-child {
+    display: flex;
   }
 
   nav.doors a.active {
@@ -1251,7 +1261,7 @@ nav.doors a.active::after {
   overflow: hidden;
   background: #fff;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
 }
 
 .cs-featured-preview .browser-viewport iframe {
@@ -4408,13 +4418,13 @@ input:focus-visible {
 }
 
 .cs-library-tab:hover {
-  border-color: var(--tab-color, var(--ink));
-  background: color-mix(in srgb, var(--tab-color, var(--ink)) 8%, var(--paper));
+  border-color: var(--ink);
+  background: var(--paper-deep);
 }
 
 .cs-library-tab.active {
-  background: var(--tab-color, var(--ink));
-  border-color: var(--tab-color, var(--ink));
+  background: var(--ink);
+  border-color: var(--ink);
   color: #fff;
 }
 
