@@ -2061,29 +2061,15 @@ nav.doors a.active::after {
 /* Scattered art grid */
 .art-grid-scatter {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl) var(--space-l);
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
   padding: var(--space-m) 0 var(--space-2xl);
   align-items: start;
-}
-
-@media (max-width: 600px) {
-  .art-grid-scatter {
-    grid-template-columns: 1fr;
-  }
+  max-width: 900px;
 }
 
 .art-item {
   max-width: 100%;
-}
-
-/* Stagger items for visual interest */
-.art-item:nth-child(even) {
-  margin-top: var(--space-xl);
-}
-
-.art-item:nth-child(3n) {
-  margin-top: var(--space-2xl);
 }
 
 .art-item figure {
