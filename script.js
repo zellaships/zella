@@ -829,28 +829,36 @@ document.addEventListener('DOMContentLoaded', () => {
       // Hash comparison instead of plain text
       if (_h(value) === _ph) {
         _su();
-        // Show success message before unlocking
+        // Inline success message
         error.textContent = '';
         csGateForm.classList.add('success');
-        input.value = '✓ Unlocked';
+        csGateForm.classList.remove('error');
+        input.value = '';
+        input.placeholder = 'Unlocked';
         input.disabled = true;
 
         setTimeout(() => {
           unlockDesignerPage();
           csGateForm.classList.remove('success');
-          input.value = '';
+          input.placeholder = 'Password';
           input.disabled = false;
-        }, 800);
+        }, 1000);
       } else {
-        error.textContent = 'Incorrect password';
-        csGateForm.classList.add('shake');
+        // Inline error message
+        csGateForm.classList.add('shake', 'error');
+        csGateForm.classList.remove('success');
         input.value = '';
-        input.focus();
+        input.placeholder = 'Incorrect password';
 
         setTimeout(() => {
           csGateForm.classList.remove('shake');
-          error.textContent = '';
-        }, 1200);
+        }, 400);
+
+        setTimeout(() => {
+          csGateForm.classList.remove('error');
+          input.placeholder = 'Password';
+          input.focus();
+        }, 1500);
       }
     });
 

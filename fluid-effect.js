@@ -73,6 +73,14 @@
   }
 
   // ===== HOMEPAGE ONLY: Soft Glow Trail with ORB =====
+  // DISABLED: Orb effect turned off, keeping only scatter text
+  // To re-enable, set this to false:
+  const disableOrb = true;
+
+  if (disableOrb && canvas) {
+    canvas.style.display = 'none';
+  }
+
   let trailMouse = { x: -1000, y: -1000 };
   let smoothMouse = { x: -1000, y: -1000 };
   let targetMouse = { x: -1000, y: -1000 };
@@ -84,7 +92,7 @@
   let currentHue = 195;
   let targetHue = 195;
 
-  if (canvas) {
+  if (canvas && !disableOrb) {
     const ctx = canvas.getContext('2d');
     if (ctx) {
       function resize() {
