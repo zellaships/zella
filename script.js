@@ -9,7 +9,13 @@
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+// Force scroll to top on page load
 window.scrollTo(0, 0);
+
+// Ensure page starts at top after everything loads
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
 
 // Register Service Worker for caching
 if ('serviceWorker' in navigator) {
@@ -24,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Also scroll to top after DOM loads in case it shifted
   window.scrollTo(0, 0);
 
-  // Progressive image loading with blur-up effect
+  // Fast image loading - start early, load direct
   const lazyImages = document.querySelectorAll('img[data-src]');
   if (lazyImages.length > 0) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -33,24 +39,50 @@ document.addEventListener('DOMContentLoaded', () => {
           const img = entry.target;
           const src = img.dataset.src;
 
-          // Preload the full image
-          const fullImage = new Image();
-          fullImage.onload = () => {
-            img.src = src;
+          // Set src directly and mark loaded on load
+          img.src = src;
+          img.onload = () => {
             img.classList.add('loaded');
-            img.removeAttribute('data-src');
           };
-          fullImage.src = src;
-
+          // If already cached, add loaded immediately
+          if (img.complete) {
+            img.classList.add('loaded');
+          }
+          img.removeAttribute('data-src');
           observer.unobserve(img);
         }
       });
     }, {
-      rootMargin: '100px 0px', // Start loading 100px before entering viewport
-      threshold: 0.01
+      rootMargin: '800px 0px', // Start loading well ahead for instant feel
+      threshold: 0
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));
+  }
+
+  // Viewport-triggered scroll animations - only animate when user arrives at element
+  const showcaseScrolls = document.querySelectorAll('.cs-showcase-scroll');
+  const browserViewports = document.querySelectorAll('.browser-viewport');
+
+  // Filter browser viewports to only those with scroll-img-drag
+  const scrollViewports = Array.from(browserViewports).filter(el => el.querySelector('.scroll-img-drag'));
+  const scrollAnimElements = [...showcaseScrolls, ...scrollViewports];
+
+  if (scrollAnimElements.length > 0) {
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, {
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+
+    scrollAnimElements.forEach(el => animObserver.observe(el));
   }
 
   // Mobile nav toggle with overlay
@@ -704,7 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return _c.map(x => `
       <a class="cs-card" href="${x.h}">
         <div class="cs-card-image${x.s ? ' cs-card-scroll' : ''}">
-          <img src="${_d(x.i)}" alt="${x.n}"${x.s ? ' class="scroll-img"' : ''} loading="lazy">
+          <img src="${_d(x.i)}" alt="${x.n}"${x.s ? ' class="scroll-img"' : ''} loading="eager">
         </div>
         <ul class="cs-card-tags">
           ${x.t.map(tag => `<li>${tag}</li>`).join('')}

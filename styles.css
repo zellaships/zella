@@ -14,7 +14,7 @@
   src: url('assets/fonts/ABCArealSuperfamilyVariable.woff2') format('woff2');
   font-weight: 400 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 :root {
@@ -1873,11 +1873,21 @@ nav.doors a.active::after {
 
 /* ---------- Artist page ---------- */
 
+/* Override overflow on all ancestors to enable sticky positioning */
+html:has(body.artist-page),
+body.artist-page,
+body.artist-page main,
+body.artist-page .wrap {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
 .art-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
   padding: var(--space-l) 0 var(--space-2xl);
+  overflow: visible; /* Required for sticky to work */
 }
 
 @media (min-width: 800px) {
@@ -2213,6 +2223,43 @@ nav.doors a.active::after {
   max-width: 100%;
 }
 
+/* Artwork size modifiers - paintings are large/full */
+.art-item--painting {
+  max-width: 100%;
+}
+
+/* Medium works - slightly smaller */
+.art-item--medium {
+  max-width: min(65%, 520px);
+}
+
+/* Flyers and posters - noticeably smaller */
+.art-item--flyer,
+.art-item--poster {
+  max-width: min(40%, 320px);
+}
+
+/* Zines - smallest */
+.art-item--zine {
+  max-width: min(35%, 280px);
+}
+
+@media (max-width: 600px) {
+  .art-item--painting {
+    max-width: 100%;
+  }
+  .art-item--medium {
+    max-width: 85%;
+  }
+  .art-item--flyer,
+  .art-item--poster {
+    max-width: 60%;
+  }
+  .art-item--zine {
+    max-width: 55%;
+  }
+}
+
 .art-item figure {
   margin: 0;
 }
@@ -2257,7 +2304,7 @@ nav.doors a.active::after {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.4s ease, opacity 0.5s ease;
+  transition: transform 0.4s ease, opacity 0.15s ease;
   pointer-events: none;
 }
 
@@ -3006,6 +3053,11 @@ body.case-study-ipg .cs-hero-image img {
 .browser-viewport .scroll-img-drag {
   width: 100%;
   animation: scrollPreviewSlow 25s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* Only animate when visible in viewport */
+.browser-viewport.is-visible .scroll-img-drag {
   animation-play-state: running;
 }
 
@@ -3447,6 +3499,18 @@ body.case-study .cs-embed-full {
   height: auto;
   display: block;
   animation: showcase-scroll 20s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* Only animate when visible in viewport */
+.cs-showcase-scroll.is-visible .showcase-img {
+  animation-play-state: running;
+}
+
+/* Add space between showcase image and caption, and below the whole figure */
+.cs-showcase-scroll figcaption {
+  margin-top: var(--space-l);
+  padding-bottom: var(--space-m);
 }
 
 @keyframes showcase-scroll {
