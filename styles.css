@@ -2249,18 +2249,30 @@ body.artist-page .wrap {
 /* Horizontal row for flyers/zines */
 .art-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-l);
   align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: var(--space-s);
+}
+
+.art-row-label {
+  font-size: var(--text-xs);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-s);
 }
 
 .art-row .art-item--flyer,
 .art-row .art-item--poster {
   max-width: 180px;
+  flex-shrink: 0;
 }
 
 .art-row .art-item--zine {
   max-width: 150px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
