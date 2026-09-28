@@ -2233,16 +2233,15 @@ body.artist-page .wrap {
   max-width: min(65%, 520px);
 }
 
-/* Flyers and posters - small */
-.art-item--flyer,
-.art-item--poster {
-  max-width: 180px;
+/* Flyers - medium size for horizontal rows */
+.art-item--flyer {
+  max-width: 240px;
   flex-shrink: 0;
 }
 
-/* Zines - smallest */
+/* Zines - slightly smaller than flyers */
 .art-item--zine {
-  max-width: 150px;
+  max-width: 220px;
   flex-shrink: 0;
 }
 
@@ -2264,14 +2263,13 @@ body.artist-page .wrap {
   margin-bottom: var(--space-s);
 }
 
-.art-row .art-item--flyer,
-.art-row .art-item--poster {
-  max-width: 180px;
+.art-row .art-item--flyer {
+  max-width: 240px;
   flex-shrink: 0;
 }
 
 .art-row .art-item--zine {
-  max-width: 150px;
+  max-width: 220px;
   flex-shrink: 0;
 }
 
@@ -2282,12 +2280,11 @@ body.artist-page .wrap {
   .art-item--medium {
     max-width: 85%;
   }
-  .art-item--flyer,
-  .art-item--poster {
-    max-width: 140px;
+  .art-item--flyer {
+    max-width: 180px;
   }
   .art-item--zine {
-    max-width: 120px;
+    max-width: 160px;
   }
   .art-row {
     gap: var(--space-m);
