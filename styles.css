@@ -2235,7 +2235,7 @@ body.artist-page .wrap {
 
 /* Flyers - medium size for horizontal rows */
 .art-item--flyer {
-  max-width: 240px;
+  max-width: 200px;
   flex-shrink: 0;
 }
 
@@ -2264,7 +2264,7 @@ body.artist-page .wrap {
 }
 
 .art-row .art-item--flyer {
-  max-width: 240px;
+  max-width: 200px;
   flex-shrink: 0;
 }
 
@@ -2281,7 +2281,7 @@ body.artist-page .wrap {
     max-width: 85%;
   }
   .art-item--flyer {
-    max-width: 180px;
+    max-width: 150px;
   }
   .art-item--zine {
     max-width: 160px;
