@@ -2256,11 +2256,11 @@ body.artist-page .wrap {
 }
 
 .art-row-label {
-  font-size: var(--text-xs);
+  font-size: var(--text-s);
   color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-2xs);
 }
 
 .art-row .art-item--flyer {
