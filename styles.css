@@ -2245,12 +2245,13 @@ body.artist-page .wrap {
   flex-shrink: 0;
 }
 
-/* Fluid responsive layout for flyers/zines */
+/* Horizontal row for flyers/zines - single row, no wrap */
 .art-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-m);
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .art-row-label {
@@ -2262,13 +2263,13 @@ body.artist-page .wrap {
 }
 
 .art-row .art-item--flyer {
-  flex: 0 1 auto;
-  width: clamp(180px, 25%, 240px);
+  flex: 0 0 auto;
+  width: 200px;
 }
 
 .art-row .art-item--zine {
-  flex: 0 1 auto;
-  width: clamp(160px, 22%, 220px);
+  flex: 0 0 auto;
+  width: 180px;
 }
 
 .art-row .art-item--flyer img,
@@ -2276,6 +2277,15 @@ body.artist-page .wrap {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .art-row .art-item--flyer {
+    width: 160px;
+  }
+  .art-row .art-item--zine {
+    width: 150px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2286,10 +2296,10 @@ body.artist-page .wrap {
     max-width: 85%;
   }
   .art-row .art-item--flyer {
-    width: clamp(140px, 45%, 180px);
+    width: 140px;
   }
   .art-row .art-item--zine {
-    width: clamp(130px, 45%, 170px);
+    width: 130px;
   }
   .art-row {
     gap: var(--space-s);
