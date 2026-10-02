@@ -2268,8 +2268,8 @@ body.artist-page .wrap {
 }
 
 .art-row .art-item--zine {
-  flex: 0 0 auto;
-  width: 180px;
+  flex: 1 1 0;
+  min-width: 150px;
 }
 
 .art-row .art-item--flyer img,
@@ -2284,7 +2284,7 @@ body.artist-page .wrap {
     width: 160px;
   }
   .art-row .art-item--zine {
-    width: 150px;
+    min-width: 120px;
   }
 }
 
@@ -2299,10 +2299,12 @@ body.artist-page .wrap {
     width: 140px;
   }
   .art-row .art-item--zine {
-    width: 130px;
+    min-width: 100px;
+    flex: 1 1 45%;
   }
   .art-row {
     gap: var(--space-s);
+    flex-wrap: wrap;
   }
 }
 
