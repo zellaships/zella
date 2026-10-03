@@ -2259,7 +2259,8 @@ body.artist-page .wrap {
   color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--space-2xs);
+  margin-top: calc(var(--space-2xl) * -0.5);
+  margin-bottom: var(--space-s);
 }
 
 .art-row .art-item--flyer {
