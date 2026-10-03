@@ -2228,6 +2228,16 @@ body.artist-page .wrap {
   max-width: 100%;
 }
 
+.art-item--wide {
+  max-width: 110%;
+  margin-left: -5%;
+}
+
+.art-item--rotate-left .art-frame-img {
+  transform: rotate(-90deg);
+  transform-origin: center center;
+}
+
 /* Medium works - slightly smaller */
 .art-item--medium {
   max-width: min(65%, 520px);
