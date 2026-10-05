@@ -5,17 +5,7 @@
 // gate UI should call a server route / middleware that checks the code
 // before the case study content is ever sent to the browser.
 
-// Prevent browser scroll restoration - run immediately
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-// Force scroll to top on page load
-window.scrollTo(0, 0);
-
-// Ensure page starts at top after everything loads
-window.addEventListener('load', () => {
-  window.scrollTo(0, 0);
-});
+// Allow natural browser scroll behavior
 
 // Register Service Worker for caching
 if ('serviceWorker' in navigator) {
@@ -27,9 +17,6 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Also scroll to top after DOM loads in case it shifted
-  window.scrollTo(0, 0);
-
   // Fast image loading - start early, load direct
   const lazyImages = document.querySelectorAll('img[data-src]');
   if (lazyImages.length > 0) {
@@ -175,8 +162,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Artist page: sticky year nav + scroll-spy
+  const yearNav = document.querySelector('.art-years');
+  const artLayout = document.querySelector('.art-layout');
   const yearLinks = document.querySelectorAll('[data-goto]');
   const yearSections = document.querySelectorAll('[data-year-section]');
+
+  // Show/hide timeline based on art section visibility
+  const artScroll = document.querySelector('.art-scroll');
+  if (yearNav && yearSections.length) {
+    const visibleSections = new Set();
+    const layoutObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target);
+          } else {
+            visibleSections.delete(entry.target);
+          }
+        });
+        if (visibleSections.size > 0) {
+          yearNav.classList.add('visible');
+        } else {
+          yearNav.classList.remove('visible');
+        }
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    );
+    yearSections.forEach((section) => layoutObserver.observe(section));
+  }
 
   if (yearLinks.length && yearSections.length) {
     yearLinks.forEach((link) => {
@@ -205,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Click-and-drag scrolling + popup for art gallery
-  const artScroll = document.querySelector('.art-scroll');
+  // artScroll already declared above
   const artContainers = document.querySelectorAll('.art-item .art-frame-img, .art-item .art-video');
 
   // Shared drag state
